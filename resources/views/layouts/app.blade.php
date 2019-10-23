@@ -20,8 +20,8 @@
     <link href="{{ asset('css/style.css') }}" rel="stylesheet" />
     <style type="text/css">
       body{
-        background-image: url('https://st2.depositphotos.com/1174966/8366/v/950/depositphotos_83662020-stock-illustration-vector-blue-squares-abstract-background.jpg');
-        background-repeat: no-repeat;
+        background-image: url('http://www.bruna.cat/imgdownload/full/130/1304132/sky-blue-background-wallpaper.jpg');
+        /*background-repeat: no-repeat;*/
         
       }
       html,
