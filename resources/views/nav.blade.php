@@ -31,6 +31,9 @@
                           <li class="nav-item">
                             <a class="nav-link" href="/employees">Maqolalar</a>
                           </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('authors.index') }}">Mualliflar</a>
+                    </li>
                           <li class="nav-item">
                             <a class="nav-link" href="{{ route('contact') }}">Contact</a>
                           </li>

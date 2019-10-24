@@ -24,7 +24,7 @@ Route::get('/search_employee', 'EmployeeController@search');
 Route::resource('employees', 'EmployeeController')->middleware('auth');
 Route::view('/contact', 'contact')->name('contact');
 
-
+Route::resource('authors', 'AuthorController')->middleware('auth');
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');

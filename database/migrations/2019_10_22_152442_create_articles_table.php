@@ -34,10 +34,10 @@ class CreateArticlesTable extends Migration
             $table->string('login')->unique();
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('phone')->unique();
+            $table->string('phone');
             $table->string('organization');
             $table->string('academic_title');
-            $table->string('photo')->nullable();
+            $table->string('photo');
             $table->timestamps();
 
         });
