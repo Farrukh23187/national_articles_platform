@@ -14,16 +14,20 @@ use App\Http\Controllers\EmployeeController;
 
 
 Route::view('/', 'home');
+Route::view('/home', 'home');
 Route::view('/about', 'about');
 
 Route::get('/search', 'CompanyController@search');
 Route::resource('companies', 'CompanyController')->middleware('auth');
 
 Route::get('/search_employee', 'EmployeeController@search');
-
 Route::resource('employees', 'EmployeeController')->middleware('auth');
+
 Route::view('/contact', 'contact')->name('contact');
 
+Route::resource('categories', 'CategoryController')->middleware('auth');
+Route::resource('types', 'TypeController')->middleware('auth');
+Route::resource('articles', 'ArticleController')->middleware('auth');
 Route::resource('authors', 'AuthorController')->middleware('auth');
 Auth::routes();
 

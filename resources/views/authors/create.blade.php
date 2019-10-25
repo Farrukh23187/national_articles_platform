@@ -4,6 +4,7 @@
 @section('title', 'Muallif yaratish')
 
 @section('content')
+<div class="container" style="margin-left: 30%; margin-top: 5%; background-color: white; width: 600px; padding: 20px; border-radius: 10px ">
     <div class="row">
         <div class="col-md-12">
 
@@ -14,4 +15,5 @@
             </form>
         </div>
     </div>
+</div>    
 @endsection

@@ -29,11 +29,17 @@
                             <a class="nav-link" href="/companies">Companies</a>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link" href="/employees">Maqolalar</a>
+                            <a class="nav-link" href="/articles">Maqolalar</a>
                           </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('authors.index') }}">Mualliflar</a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('authors.index') }}">Mualliflar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('categories.index') }}">Categoriyalar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('types.index') }}">Tiplar</a>
+                        </li>
                           <li class="nav-item">
                             <a class="nav-link" href="{{ route('contact') }}">Contact</a>
                           </li>

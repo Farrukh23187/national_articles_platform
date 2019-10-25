@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Article;
+use App\Type;
 
-class ArticleController extends Controller
+class TypeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $article = Article::all();
-        return view('articles.index', compact('article'));
+         $type = Type::all();
+        return view('types.index', compact('type'));
     }
 
     /**
@@ -25,7 +25,9 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        //
+        $type = new Type();
+
+        return view('types.create', compact('type'));
     }
 
     /**
@@ -36,7 +38,13 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         $data = request()->validate([
+            'name' => 'required|min:3'
+            
+        ]);
+
+        Type::create($data);
+        return redirect('types');
     }
 
     /**

@@ -29,20 +29,20 @@
         <table id="dt-material-checkbox" class="table table-striped" cellspacing="0" width="100%">
             <thead>
             <tr>
-                <th>ID</th>
-                <th class="th-sm">Muallif Ismi
+                <th><b>ID</b></th>
+                <th class="th-sm"><b>Muallif Ismi</b>
                 </th>
-                <th class="th-sm">Muallif Familiyasi
+                <th class="th-sm"><b>Muallif Familiyasi</b>
                 </th>
-                <th class="th-sm">Muallif email
+                <th class="th-sm"><b>Muallif email</b>
                 </th>
-                <th class="th-sm">Muallif telefoni
+                <th class="th-sm"><b>Muallif telefoni</b>
                 </th>
-                <th class="th-sm">Company tashkiloti
+                <th class="th-sm"><b>Company tashkiloti</b>
                 </th>
-                <th class="th-sm">Muallif darajasi
+                <th class="th-sm"><b>Muallif darajasi</b>
                 </th>
-                <th class="th-sm">Operations
+                <th class="th-sm"><b>Operations</b>
                 </th>
             </tr>
             </thead>
@@ -51,20 +51,25 @@
                 <a href="/authors/{{ $item->id }}">
                     <tr>
                         <td>{{ $item->id }}</td>
-                        <td>{{ $item->name }}</td>
+                        <td>{{ $item->first_name }}</td>
+                        <td>{{ $item->last_name }}</td>
                         <td>{{ $item->email }}</td>
-                        <td><img src="{{ asset("storage/$item->logo") }}" alt="" style="width: 10%; height: 10%:"></td>
-                        <td><a href="https://{{ $item->website }}">{{ $item->website }}</a></td>
-                        <td>
-                            <a href="/companies/{{ $item->id }}">
-                                <i title="show" class="glyphicon glyphicon-eye-open"></i>
+                        <td>{{ $item->phone }}</td>
+                        <td>{{ $item->organization }}</td>
+                        <td>{{ $item->academic_title }}</td>
+
+
+                       <!--  <td><img src="{{ asset("storage/$item->logo") }}" alt="" style="width: 10%; height: 10%:"></td> -->
+                        <td style="position: relative;  ">
+                            <!-- <a href="/companies/{{ $item->id }}" style="float: left">
+                                <i title="show" style="padding: 10px 15px" class="btn btn-success">show</i>
                             </a>
-                            <a href="/companies/{{ $item->id }}/edit">
-                                <i title="edit" class="glyphicon glyphicon-edit"></i>
-                            </a>
+                            <a href="/companies/{{ $item->id }}/edit" style="float: left">
+                                <i title="edit" style="padding: 10px 20px" class="btn btn-warning">edit</i>
+                            </a> -->
                             <form action="{{ route('companies.destroy', ['id' => $item->id] )}}" method="post">
                                 {{ method_field('delete') }}
-                                <button onclick="return confirm('Are you sure?')"><i title="delete" class="glyphicon glyphicon-remove"></i></button>
+                                <button class="btn btn-danger" style="padding: 10px;" onclick="return confirm('Siz haqiqatdan ham ushbu muallifni olib tashalamoqchimisiz?')"><i title="delete" >delete</i></button>
                                 {{ csrf_field() }}
                             </form>
                         </td>
