@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('backend/backend_layouts.main')
 @section('title', 'Employees List')
     
 @section('content')

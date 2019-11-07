@@ -16,7 +16,7 @@ class AuthorController extends Controller
     {
         $author  = Author::all();
 
-        return view('authors.index', compact('author'));
+        return view('backend.authors.index', compact('author'));
     }
 
     /**
@@ -28,7 +28,7 @@ class AuthorController extends Controller
     {
         $author = new Author();
 
-        return view('authors.create', compact('author'));
+        return view('backend.authors.create', compact('author'));
     }
 
     /**

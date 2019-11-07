@@ -15,7 +15,7 @@ class ArticleController extends Controller
     public function index()
     {
         $article = Article::all();
-        return view('articles.index', compact('article'));
+        return view('backend.articles.index', compact('article'));
     }
 
     /**

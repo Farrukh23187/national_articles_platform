@@ -15,7 +15,7 @@ class CategoryController extends Controller
     public function index()
     {
         $category = Category::all();
-        return view('categories.index', compact('category'));
+        return view('backend.categories.index', compact('category'));
     }
 
     /**
@@ -27,7 +27,7 @@ class CategoryController extends Controller
     {
          $category = new Category();
 
-        return view('categories.create', compact('author'));
+        return view('backend.categories.create', compact('author'));
     }
 
     /**
