@@ -1,4 +1,4 @@
-@extends('layouts.app') @section('title', 'Employees List') @section('content')
+@extends('backend/backend_layouts.main') @section('title', 'Employees List') @section('content')
 
 <hr />
 <div class="container" style="background-color: white; padding: 10px">

@@ -18,8 +18,8 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        $company = Company::with('employee')->paginate(1);
-        return view('companies.index', compact('company')); 
+        $company = Company::with('employee')->paginate(10);
+        return view('backend.companies.index', compact('company')); 
     }
 
     /**
@@ -31,14 +31,14 @@ class CompanyController extends Controller
     {
         $company = new Company();
 
-        return view('companies.create', compact('company'));
+        return view('backend.companies.create', compact('company'));
     }
 
     public function search(Request $request){
         $search = $request->get('search');
         // dd($search);
-        $company = DB::table('companies')->where('name', 'like', '%'.$search.'%')->paginate(2);
-    return view('companies.index', compact('company'));
+        $company = DB::table('companies')->where('name', 'like', '%'.$search.'%')->paginate(10);
+    return view('backend.companies.index', compact('company'));
     }
     /**
      * Store a newly created resource in storage.
@@ -80,7 +80,7 @@ class CompanyController extends Controller
      */
     public function show(Company $company)
     {
-        return view('companies.show', compact('company'));
+        return view('backend.companies.show', compact('company'));
     }
 
     /**
@@ -91,7 +91,7 @@ class CompanyController extends Controller
      */
     public function edit(Company $company)
     {
-        return view('companies.edit', compact('company'));
+        return view('backend.companies.edit', compact('company'));
     }
 
     /**
