@@ -49,7 +49,7 @@
                     @else
                         <li class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
-                                    <span class="fas fa-user"></span> {{ Auth::user()->name }} 
+                                    <span class="fas fa-user"></span> {{ Auth::user()->fullname }} 
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
