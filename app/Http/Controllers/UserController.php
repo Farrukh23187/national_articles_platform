@@ -31,10 +31,10 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(User $user)
     {
         
-        return view('backend.users.create');
+        return view('backend.users.create', compact('user'));
     }
 
     /**
@@ -82,6 +82,7 @@ class UserController extends Controller
      */
     public function update(UpdateUser $request, User $user)
     {        
+        // dd($request);
         $user->update($request->validated());
         if ($request->has('old_password') && ( strlen($request->get('password', '')) > 4 )){
             if (password_verify($request->get('password'), $user->password)) {

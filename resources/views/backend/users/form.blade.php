@@ -12,6 +12,7 @@
             <div class="text-danger">{{$errors->first('email')}}</div>
         </div>
         <div class="form-group">
+        <!-- <input type="hidden" value="" name="show_password"> -->
             <label>Parol</label>
             
             <input type="password" class="form-control" name="password" value="{{ old('password') ?? $user->password}}">
