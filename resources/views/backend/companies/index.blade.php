@@ -58,7 +58,7 @@
                               </a>
                               <form action="{{ route('companies.destroy', ['id' => $item->id] )}}" method="post">
                                   {{ method_field('delete') }}
-                              <button onclick="return confirm('Are you sure?')"><i title="delete" class="glyphicon glyphicon-remove"></i></button>
+                              <button class="btn btn-danger" onclick="return confirm('Are you sure?')"><i title="delete" class="fas fa-trash"> </i> delete</button>
                                 {{ csrf_field() }}
                             </form>
                     </td>

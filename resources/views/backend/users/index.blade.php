@@ -35,7 +35,7 @@
                     <form action="{{ route('employees.destroy', ['id' => $item->id] )}}" method="post">
                         {{ method_field('delete') }}
                         <button class="btn btn-danger" onclick="return confirm('Are you sure?')" title="delete" class="btn blue lighten-2 " style="padding:10px 22px">
-                            <i class="fas fa-trash" aria-hidden="true">Delete</i>
+                            <i class="fas fa-trash" aria-hidden="true"> Delete</i>
                         </button>
                         {{ csrf_field() }}
                     </form>
@@ -44,5 +44,13 @@
             @endforeach
         </tbody>
     </table>
+    <div class="row">
+    <div class="col-md-6"></div>
+        <div class="col-md-4 center">
+            {{ $users ->links() }}
+        </div>
+    <div class="col-md-4"></div>
+
+    </div>
 </div>
 @endsection
