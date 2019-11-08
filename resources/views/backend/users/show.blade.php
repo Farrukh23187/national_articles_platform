@@ -25,7 +25,7 @@
             </tr>
             <tr class="th-sm">
                     <th>Company</th>
-                    <td>{{ ($user->company->name) ? $user->company->name : "Companiya kiritilmagan" }}</td>
+                    <td>{{ ($user->company_id != null) ? $user->company->name : "Companiya kiritilmagan" }}</td>
             </tr>
         </table>
 
