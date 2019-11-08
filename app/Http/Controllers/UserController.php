@@ -21,7 +21,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $users = User::paginate(4);
 
         return view('backend.users.index', compact('users'));
     }

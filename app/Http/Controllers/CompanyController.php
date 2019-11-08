@@ -91,11 +91,11 @@ class CompanyController extends Controller
      */
     public function edit(Company $company)
     {
-        return view('backend.companies.edit', compact('company'));
+        return view('backend.companies.edit', copaginatepact('company'));
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified resource in storage.paginate
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Company  $company
