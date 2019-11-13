@@ -38,8 +38,6 @@
                 </th>
                 <th class="th-sm"><b>Muallif telefoni</b>
                 </th>
-                <th class="th-sm"><b>Company tashkiloti</b>
-                </th>
                 <th class="th-sm"><b>Muallif darajasi</b>
                 </th>
                 <th class="th-sm"><b>Operations</b>
@@ -55,24 +53,24 @@
                         <td>{{ $item->last_name }}</td>
                         <td>{{ $item->email }}</td>
                         <td>{{ $item->phone }}</td>
-                        <td>{{ $item->organization }}</td>
                         <td>{{ $item->academic_title }}</td>
 
 
-                       <!--  <td><img src="{{ asset("storage/$item->logo") }}" alt="" style="width: 10%; height: 10%:"></td> -->
-                        <td style="position: relative;  ">
-                            <!-- <a href="/companies/{{ $item->id }}" style="float: left">
-                                <i title="show" style="padding: 10px 15px" class="btn btn-success">show</i>
-                            </a>
-                            <a href="/companies/{{ $item->id }}/edit" style="float: left">
-                                <i title="edit" style="padding: 10px 20px" class="btn btn-warning">edit</i>
-                            </a> -->
-                            <form action="{{ route('companies.destroy', ['id' => $item->id] )}}" method="post">
-                                {{ method_field('delete') }}
-                                <button class="btn btn-danger" style="padding: 10px;" onclick="return confirm('Siz haqiqatdan ham ushbu muallifni olib tashalamoqchimisiz?')"><i title="delete" >delete</i></button>
-                                {{ csrf_field() }}
-                            </form>
-                        </td>
+                        <td >
+                    <a href="{{ route('authors.show', ['id' => $item->id]) }}" title="show" class="btn blue lighten-2 " style="padding:10px 15px">
+                        <i  class="fas fa-eye" aria-hidden="true"></i>
+                    </a>
+                    <a href="{{ route('authors.edit', ['id' => $item->id]) }}" title="edit" class="btn blue lighten-2 " style="padding:10px 15px">
+                        <i  class="fas fa-edit" aria-hidden="true"></i>
+                    </a>
+                    <form action="{{ route('employees.destroy', ['id' => $item->id] )}}" method="post">
+                        {{ method_field('delete') }}
+                        <button class="btn btn-danger" onclick="return confirm('Are you sure?')" title="delete" class="btn blue lighten-2 " style="padding:10px 15px">
+                            <i class="fas fa-trash" aria-hidden="true"> Delete</i>
+                        </button>
+                        {{ csrf_field() }}
+                    </form>
+                </td>
                     </tr>
                 </a>
             @endforeach
