@@ -20,24 +20,13 @@ class CreateArticlesTable extends Migration
 
         });
 
-        Schema::create('types', function (Blueprint $table){
-            $table->increments('id');
-            $table->string('name');
-            $table->timestamps();
-
-        });
-
         Schema::create('authors', function (Blueprint $table){
             $table->increments('id');
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('login')->unique();
             $table->string('email')->unique();
-            $table->string('password');
             $table->string('phone');
-            $table->string('organization');
             $table->string('academic_title');
-            $table->string('photo');
             $table->timestamps();
 
         });
@@ -48,15 +37,13 @@ class CreateArticlesTable extends Migration
             $table->integer('category_id')->unsigned();
             $table->integer('author_id')->unsigned();
             $table->date('year')->nullable();
-            $table->integer('type_id')->unsigned();
             $table->timestamps();
 
              $table->foreign('category_id')->references('id')->on('categories')
                 ->onUpdate('cascade')->onDelete('cascade');
              $table->foreign('author_id')->references('id')->on('authors')
                 ->onUpdate('cascade')->onDelete('cascade');
-             $table->foreign('type_id')->references('id')->on('types')
-                ->onUpdate('cascade')->onDelete('cascade');
+             
         });
 
     }
