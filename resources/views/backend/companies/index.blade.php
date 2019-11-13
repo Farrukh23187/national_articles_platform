@@ -28,14 +28,16 @@
     <thead>
       <tr>
         <th>ID</th>
-        <th class="th-sm">Company Name
+        <th class="th-sm">Company nomi
         </th>
-        <th class="th-sm">Company email
+        <th class="th-sm">Company email addresi
         </th>
-        <th class="th-sm">Company logo
-            </th>
+        <th class="th-sm">Company manzili
+        </th>
+        <th class="th-sm">Company telefon raqami
+        </th>
         <th class="th-sm">Company website
-                </th>
+        </th>
         <th class="th-sm">Operations
         </th>
         </tr>
@@ -47,20 +49,24 @@
                     <td>{{ $item->id }}</td>
                     <td>{{ $item->name }}</td>
                     <td>{{ $item->email }}</td>
-                    <td><img src="{{ asset("storage/$item->logo") }}" alt="" style="width: 10%; height: 10%:"></td>
+                    <td>{{ $item->address }}</td>
+                    <td>{{ $item->phone }}</td>
+                   
+                    <!-- <td><img src="{{ asset("storage/$item->logo") }}" alt="" style="width: 10%; height: 10%:"></td> -->
                     <td><a href="https://{{ $item->website }}">{{ $item->website }}</a></td>
                     <td>
-                          <a href="/companies/{{ $item->id }}">
-                                  <i title="show" class="glyphicon glyphicon-eye-open"></i>
-                              </a>
-                          <a href="/companies/{{ $item->id }}/edit">
-                                  <i title="edit" class="glyphicon glyphicon-edit"></i>
-                              </a>
-                              <form action="{{ route('companies.destroy', ['id' => $item->id] )}}" method="post">
-                                  {{ method_field('delete') }}
-                              <button class="btn btn-danger" onclick="return confirm('Are you sure?')"><i title="delete" class="fas fa-trash"> </i> delete</button>
-                                {{ csrf_field() }}
-                            </form>
+                        <a href="{{ route('companies.show', ['id' => $item->id]) }}" title="show" class="btn blue lighten-2 " style="padding:10px 20px">
+                            <i  class="fas fa-eye" aria-hidden="true"></i>
+                        </a>
+                        <a href="{{ route('companies.edit', ['id' => $item->id]) }}" title="edit" class="btn blue lighten-2 " style="padding:10px 20px">
+                            <i  class="fas fa-edit" aria-hidden="true"></i>
+                        </a>
+                          
+                    <form action="{{ route('companies.destroy', ['id' => $item->id] )}}" method="post">
+                            {{ method_field('delete') }}
+                        <button class="btn btn-danger" onclick="return confirm('Are you sure?')" style="padding:10px 22px"><i title="delete" class="fas fa-trash"> </i> delete</button>
+                        {{ csrf_field() }}
+                    </form>
                     </td>
                   </tr>
       </a>

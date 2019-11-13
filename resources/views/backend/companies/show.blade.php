@@ -2,6 +2,7 @@
 @section('title', 'DETAILS for  ' .$company->name)
 @include('backend/nav')
 @section('content')
+<div class="container">
     <h1>Details for {{ $company->name }}</h1>
 
     <table id="dt-material-checkbox" class="table table-striped" cellspacing="0" width="100%">
@@ -18,14 +19,19 @@
                 <td>{{ $company->email }}</td>
         </tr>
         <tr class="th-sm">
+                <th>Manzil</th>
+                <td>{{ $company->address }}</td>
+        </tr>
+        <tr class="th-sm">
+                <th>Telefon raqam</th>
+                <td>{{ $company->phone }}</td>
+        </tr>
+        <tr class="th-sm">
                 <th>Website</th>
                 <td>{{ $company->website }}</td>
         </tr>
-        <tr class="th-sm">
-                <th>Logo</th>
-                <td><img src="{{ asset("storage/$company->logo") }}" style="width: 10%" alt=""></td>
-        </tr>
+        
     </table>
-
+</div>
     
 @endsection

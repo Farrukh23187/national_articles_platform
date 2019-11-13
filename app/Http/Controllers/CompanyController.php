@@ -55,18 +55,12 @@ class CompanyController extends Controller
             'website' => 'required',
             'logo' => 'required|file'
             ]);
-            // $request->file('logo')->store('public');
-            
-            $request->logo->storeAs('public', $request->logo->getClientOriginalName());
-            $img_name = $request->logo->getClientOriginalName();
-
-        // dd($img); 
+        
         $company = new Company();
         $company->name = request('name');
         $company->email = request('email');
         $company->website = request('website');
 
-        $company->logo = $img_name;
         $company->save(); 
         // Company::create($data);
         return redirect('companies');
@@ -91,7 +85,7 @@ class CompanyController extends Controller
      */
     public function edit(Company $company)
     {
-        return view('backend.companies.edit', copaginatepact('company'));
+        return view('backend.companies.edit', compact('company'));
     }
 
     /**
@@ -106,21 +100,14 @@ class CompanyController extends Controller
         $data = request()->validate([
             'name' => 'required',
             'email' => 'required|email',
+            'address' => 'required',
+            'phone' => 'required',
             'website' => 'required',
-            'logo' => 'required'
         ]);
-        $request->logo->storeAs('public', $request->logo->getClientOriginalName());
-        $img_name = $request->logo->getClientOriginalName();
+       
+    
 
-    // dd($img); 
-    $company = new Company();
-    $company->name = request('name');
-    $company->email = request('email');
-    $company->website = request('website');
-
-    $company->logo = $img_name;
-    $company->update();      
-        // $company->update($data);
+    $company->update($data);      
         return redirect('companies');
     }
 
