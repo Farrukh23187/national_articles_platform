@@ -12,7 +12,7 @@ class UserController extends Controller
 
     public function __construct()
     {
-        $this->middleware('permission:roles-crud');
+        $this->middleware('permission:users-crud');
     }
     /**
      * Display a listing of the resource.
