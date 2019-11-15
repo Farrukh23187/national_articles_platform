@@ -4,8 +4,8 @@
 <div class="container" style="background-color: white; padding: 10px; margin-top: 20px">
     <div class="row" >
         <div class="col-md-12">
-            <form action="/employees" method="post" enctype="multipart/form-data">
-                @include('employees.form')
+            <form action="/articles" method="post" enctype="multipart/form-data">
+                @include('backend.articles.form')
 
                 <button type="submit" class="btn btn-primary">Create</button>
             </form>

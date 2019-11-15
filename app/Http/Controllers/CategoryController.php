@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\Author\StoreAuthor;
+use App\Http\Requests\Author\UpdateAuthor;
 use App\Category;
+use App\Http\Requests\Category\StoreCategory;
 
 class CategoryController extends Controller
 {
@@ -23,11 +26,9 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Category $category)
     {
-         $category = new Category();
-
-        return view('backend.categories.create', compact('author'));
+        return view('backend.categories.create', compact('category'));
     }
 
     /**
@@ -36,16 +37,10 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreCategory $request)
     {
-        $data = request()->validate([
-            'name' => 'required|min:3'
-            
-        ]);
-
-        Category::create($data);
-        return redirect('categories');
-
+        $category = Category::create($request->validated());
+        return redirect('authors');
     }
 
     /**
@@ -88,8 +83,9 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        return redirect('categories');
     }
 }

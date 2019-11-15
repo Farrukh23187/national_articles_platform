@@ -1,44 +1,49 @@
 <div class="row">
     <div class="col-md-12">
     <div class="form-group pb-3">
-        <label for="first_name">Enter first_name Employeer</label>
-        <input type="text" name="first_name"  class="form-control" value="{{ old('first_name') ?? $employee->first_name}}">
-        <div class="text-danger">{{$errors->first('first_name')}}</div>
+        <label for="name">Maqola nomini kiriting</label>
+        <input type="text" name="name"  class="form-control" value="{{ old('name') ?? $article->name}}">
+        <div class="text-danger">{{$errors->first('name')}}</div>
     </div>
     <div class="form-group pb-3">
-            <label for="last_name">Enter last_name Employeer</label>
-            <input type="text" name="last_name"  class="form-control" value="{{ old('last_name') ?? $employee->last_name}}">
-            <div class="text-danger">{{$errors->first('last_name')}}</div>
+            <label for="year">Maqola yilini kiriting</label>
+            <input type="text" name="year"  class="form-control" value="{{ old('year') ?? $article->year}}">
+            <div class="text-danger">{{$errors->first('year')}}</div>
         </div>
     
     <div class="form-group pb-2">
-        <label for="email">Enter email address employee</label>
-        <input type="text" name="email" class="form-control"  value="{{ old('email') ?? $employee->email}}">
-        <div class="text-danger">{{$errors->first('email')}}</div>
+        <label for="email">Maqola kalit sozlarini kiriting</label>
+        <textarea name="key_words" id="" class="form-control" value="{{ old('email') ?? $article->key_words}}" cols="30" rows="10"></textarea>
+        <div class="text-danger">{{$errors->first('key_words')}}</div>
     </div>
-{{--         
+
     <div class="form-group pb-3">
-        <label for="name">Enter About employee</label>
-        <input type="file" name="img">
-        <div class="text-danger">{{$errors->first('about')}}</div>
-    </div> --}}
-    
-    <div class="form-group pb-3">
-            <label for="phone">Enter phone employee</label>
-            <input type="text" name="phone"  class="form-control" value="{{ old('phone') ?? $employee->phone}}">
-            <div class="text-danger">{{$errors->first('phone')}}</div>
+            <label for="annotation">Maqola annotatsiyasini kiriting</label>
+            <textarea name="annotation" id="" class="form-control" value="{{ old('annotation') ?? $article->annotation}}" cols="30" rows="10"></textarea>
+            <div class="text-danger">{{$errors->first('annotation')}}</div>
     </div>
 
     <div class="form-group pb-2">
-            <label for="company_id">Select Employeer</label>
-            <select name="company_id" id="" class="form-control">
-                @foreach ($company as $com)
-                <option value="{{ $com->id }}">{{ $com->name }}</option>
+            <label for="author_id">Muallifni tanlang</label>
+            <select name="author_id" id="" class="form-control">
+                @foreach ($author as $com)
+                <option value="{{ $com->id }}">{{ $com->first_name }} {{ $com->last_name }}</option>
                 @endforeach
             </select>
-            <div class="text-danger">{{$errors->first('company_id')}}</div>
-        </div>
+            <div class="text-danger">{{$errors->first('author_id')}}</div>
     </div>
+
+    <div class="form-group pb-2">
+        <label for="category_id">Kategoriyani tanlang</label>
+        <select name="category_id" id="" class="form-control">
+            @foreach ($category as $cat)
+            <option value="{{ $cat->id }}">{{ $cat->name }}</option>
+            @endforeach
+        </select>
+        <div class="text-danger">{{$errors->first('category_id')}}</div>
     </div>
+
+</div>
+</div>
     {{ csrf_field() }}
     

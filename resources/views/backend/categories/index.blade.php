@@ -2,7 +2,7 @@
 
 <hr />
 <div class="container" style="background-color: white; padding: 10px">
-        <a  class="btn btn-success" href="/employees/create">Yangi categoriya kiritish</a>
+        <a  class="btn btn-success" href="{{ route('categories.create') }}">Yangi categoriya kiritish</a>
 
     <h1>Categoriyalar</h1>
 

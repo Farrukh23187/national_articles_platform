@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Article;
+use App\Author;
+use App\Category;
+use App\Http\Requests\Article\StoreArticle;
+use App\Http\Requests\Article\UpdateArticle;
+
 
 class ArticleController extends Controller
 {
@@ -23,9 +28,11 @@ class ArticleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Article $article)
     {
-        //
+        $category = Category::all();
+        $author = Author::all();
+        return view('backend.articles.create', compact('article', 'author', 'category'));
     }
 
     /**
@@ -34,9 +41,10 @@ class ArticleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreArticle $request)
     {
-        //
+        $article = Article::create($request->validated());
+        return redirect('articles');
     }
 
     /**
@@ -45,9 +53,9 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Article $article)
     {
-        //
+        return view('backend.articles.show', compact('article'));
     }
 
     /**
@@ -79,8 +87,9 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Article $article)
     {
-        //
+        $article->delete();
+        return redirect('articles');
     }
 }
