@@ -43,7 +43,8 @@ Route::middleware(['auth:web'])->group(function () {
         'permissions' => 'PermissionController',
         'categories' => 'CategoryController',
         'articles' => 'ArticleController',
-        'authors' => 'AuthorController'
+        'authors' => 'AuthorController',
+        'journals' => 'JournalController'
         ]);
 
         Route::get('logout', 'AuthController@logout')->name('backend.logout');
