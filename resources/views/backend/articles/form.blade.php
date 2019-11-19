@@ -13,13 +13,13 @@
     
     <div class="form-group pb-2">
         <label for="email">Maqola kalit sozlarini kiriting</label>
-        <textarea name="key_words" id="" class="form-control" value="{{ old('email') ?? $article->key_words}}" cols="30" rows="10"></textarea>
+        <textarea name="key_words" id="" class="form-control" value="" cols="30" rows="10">{{ old('key_words') ?? $article->key_words}}</textarea>
         <div class="text-danger">{{$errors->first('key_words')}}</div>
     </div>
 
     <div class="form-group pb-3">
             <label for="annotation">Maqola annotatsiyasini kiriting</label>
-            <textarea name="annotation" id="" class="form-control" value="{{ old('annotation') ?? $article->annotation}}" cols="30" rows="10"></textarea>
+            <textarea name="annotation" id="" class="form-control" value="" cols="30" rows="10">{{ old('annotation') ?? $article->annotation}}</textarea>
             <div class="text-danger">{{$errors->first('annotation')}}</div>
     </div>
 

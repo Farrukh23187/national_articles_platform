@@ -35,6 +35,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('categories.index') }}">Categoriyalar</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('journals.index') }}">Jurnallar</a>
+                        </li>
                           <!-- <li class="nav-item">
                             <a class="nav-link" href="{{ route('contact') }}">Contact</a>
                           </li> -->

@@ -29,16 +29,15 @@
             <thead>
             <tr>
                 <th><b>ID</b></th>
-                <th class="th-sm"><b>Jurnal Ismi</b>
+                <th class="th-sm"><b>Jurnal nomi</b>
                 </th>
-                <th class="th-sm"><b>Jurnal Familiyasi</b>
+                <th class="th-sm"><b>Jurnal tashkiloti</b>
                 </th>
-                <th class="th-sm"><b>Jurnal email</b>
+                <th class="th-sm"><b>Jurnal turi</b>
                 </th>
-                <th class="th-sm"><b>Jurnal telefoni</b>
-                </th>
-                <th class="th-sm"><b>Jurnal darajasi</b>
-                </th>
+                <!-- <th class="th-sm"><b>Jurnal categoriyasi</b>
+                </th> -->
+                
                 <th class="th-sm"><b>Operations</b>
                 </th>
             </tr>
@@ -51,11 +50,11 @@
                         <td>{{ $item->name }}</td>
                         <td>{{ $item->company->name }}</td>
                         <td>{{ $item->journaltype->name }}</td>
-                        <td>{{ $item->phone }}</td>
-                        <td>{{ $item->academic_title }}</td>
-
-
-                        <td >
+                        
+                        <!-- <td>@foreach ($journal_category as $jcategory)
+                        {{ $jcategory->category->name }} @endforeach
+                        </td> -->
+                    <td >
                     <a href="{{ route('journals.show', ['id' => $item->id]) }}" title="show" class="btn blue lighten-2 " style="padding:10px 15px">
                         <i  class="fas fa-eye" aria-hidden="true"></i>
                     </a>

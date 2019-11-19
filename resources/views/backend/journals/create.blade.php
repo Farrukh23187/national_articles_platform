@@ -1,5 +1,3 @@
-
-
 @extends('backend/backend_layouts.main')
 @section('title', 'Muallif yaratish')
 @include('backend/nav')
@@ -8,8 +6,8 @@
     <div class="row">
         <div class="col-md-12">
 
-            <form action="/authors" method="post" enctype="multipart/form-data">
-                @include('backend.authors.form')
+            <form action="/journals" method="post" enctype="multipart/form-data">
+                @include('backend.journals.form')
 
                 <button type="submit" class="btn btn-primary">Create</button>
             </form>

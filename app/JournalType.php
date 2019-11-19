@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class JournalTypes extends Model
+class JournalType extends Model
 {
     //
 }
