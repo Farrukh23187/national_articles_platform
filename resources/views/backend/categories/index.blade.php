@@ -27,7 +27,7 @@
                     <a href="/employees/{{ $item->id }}/edit" title="edit" class="btn blue lighten-2" style="">
                         <i  class="fas fa-edit" aria-hidden="true"></i>
                     </a> -->
-                    <form action="{{ route('employees.destroy', ['id' => $item->id] )}}" method="post">
+                    <form action="{{ route('categories.destroy', ['id' => $item->id] )}}" method="post">
                         {{ method_field('delete') }}
                         <button class="btn btn-danger" onclick="return confirm('Are you sure?')" title="delete" class="btn blue lighten-2" style="">
                             <i class="fas fa-trash" aria-hidden="true">Delete</i>

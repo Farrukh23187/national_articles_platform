@@ -14,7 +14,7 @@ class AddShowPasswordColumnToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('show_password');
+            $table->string('show_password')->nullable();
         });
     }
 

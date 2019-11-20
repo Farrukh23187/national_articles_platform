@@ -21,7 +21,7 @@ class JournalConferenceTableSeeder extends Seeder
             ['name' => 'Xalqaro miqyosdagi']
         ];
 
-        DB::table('journalTypes')->insert($journaltypes);
-        DB::table('conferenceTypes')->insert($conferencetypes);
+        DB::table('journal_types')->insert($journaltypes);
+        DB::table('conference_types')->insert($conferencetypes);
     }
 }

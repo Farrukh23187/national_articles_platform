@@ -13,7 +13,7 @@ class CreateJournalsTable extends Migration
      */
     public function up()
     {
-        Schema::create('journalTypes', function (Blueprint $table) {
+        Schema::create('journal_types', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->timestamps();
@@ -28,7 +28,7 @@ class CreateJournalsTable extends Migration
 
             $table->foreign('company_id')->references('id')->on('companies')
                 ->onUpdate('cascade')->onDelete('cascade');
-            $table->foreign('journaltype_id')->references('id')->on('journalTypes')
+            $table->foreign('journaltype_id')->references('id')->on('journal_types')
                 ->onUpdate('cascade')->onDelete('cascade');
         });
     }

@@ -1,7 +1,4 @@
-@extends('layouts.app')
-@section('title', 'Edit for ' . $user->fullname)
-    
-@section('content')
+@extends('backend/backend_layouts.main') @section('title', 'Edit for $user->fullname') @include('backend.nav') @section('content')
     <div class="container">
         <div class="row">
             <div class="col-12">

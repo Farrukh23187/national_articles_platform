@@ -40,7 +40,7 @@ class CategoryController extends Controller
     public function store(StoreCategory $request)
     {
         $category = Category::create($request->validated());
-        return redirect('authors');
+        return redirect('categories');
     }
 
     /**

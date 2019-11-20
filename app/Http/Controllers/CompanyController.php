@@ -46,22 +46,23 @@ class CompanyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Company $company)
     {
         
         $data = request()->validate([
             'name' => 'required',
             'email' => 'required|email',
+            'address' => 'required',
             'website' => 'required',
-            'logo' => 'required|file'
+            'phone' => 'required'
             ]);
         
-        $company = new Company();
-        $company->name = request('name');
-        $company->email = request('email');
-        $company->website = request('website');
+        // $company = new Company();
+        // $company->name = request('name');
+        // $company->email = request('email');
+        // $company->website = request('website');
 
-        $company->save(); 
+        $company->create($data); 
         // Company::create($data);
         return redirect('companies');
     }

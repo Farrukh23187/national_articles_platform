@@ -13,11 +13,20 @@ class CreateJournalCategoriesTable extends Migration
      */
     public function up()
     {
+        
+       
         Schema::create('journal_categories', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('journal_id');
-            $table->integer('category_id');
+            $table->integer('journal_id')->unsigned();
+            $table->integer('category_id')->unsigned();
             $table->timestamps();
+
+
+            $table->foreign('journal_id')->references('id')->on('journals')
+                ->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('category_id')->references('id')->on('categories')
+                ->onUpdate('cascade')->onDelete('cascade');
+
         });
     }
 

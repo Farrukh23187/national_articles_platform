@@ -17,9 +17,11 @@ class CheckPermission
     {
         if (auth()->user()->can($permission)) {
             return $next($request);
+        }else{
+
+            abort(403, 'You dont have permission to do this action');
+            return $next($request);
         }
-        abort(403, 'You dont have permission to do this action');
 //        return response()->json(['success' => false, 'message' => __('messages.missing_permission')]);
-        // return $next($request);
     }
 }

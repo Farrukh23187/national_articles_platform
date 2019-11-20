@@ -13,7 +13,7 @@ class CreateConferencesTable extends Migration
      */
     public function up()
     {
-        Schema::create('conferenceTypes', function (Blueprint $table) {
+        Schema::create('conference_types', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->timestamps();
@@ -29,7 +29,7 @@ class CreateConferencesTable extends Migration
 
             $table->foreign('company_id')->references('id')->on('companies')
             ->onUpdate('cascade')->onDelete('cascade');
-            $table->foreign('conferencetype_id')->references('id')->on('conferenceTypes')
+            $table->foreign('conferencetype_id')->references('id')->on('conference_types')
             ->onUpdate('cascade')->onDelete('cascade');
 
         });
