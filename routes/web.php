@@ -29,7 +29,8 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 
 
-
+// Route::get('myform', 'AjaxDemoController@myform');
+// Route::get('select-ajax', 'ArticleController@selectAjax')->name('select-ajax');
 
 
 
@@ -46,6 +47,7 @@ Route::middleware(['auth:web'])->group(function () {
         'authors' => 'AuthorController',
         'journals' => 'JournalController'
         ]);
+        Route::get('/json-categories','ArticleController@selectAjax');
 
         Route::get('logout', 'AuthController@logout')->name('backend.logout');
         Route::view('/backend/index', 'backend/index')->name('index');

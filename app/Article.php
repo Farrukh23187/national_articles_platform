@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\ArticleCategory;
 use App\Author;
+use App\Journal;
 class Article extends Model
 {
      protected $guarded = [];
@@ -15,6 +16,9 @@ class Article extends Model
 
     public function author(){
     	return $this->belongsTo(Author::class);
+    }
+    public function journal(){
+    	return $this->belongsTo(Journal::class);
     }
 
     

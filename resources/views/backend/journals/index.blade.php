@@ -35,16 +35,14 @@
                 </th>
                 <th class="th-sm"><b>Jurnal turi</b>
                 </th>
-                <!-- <th class="th-sm"><b>Jurnal categoriyasi</b>
-                </th> -->
-                
+               
                 <th class="th-sm"><b>Operations</b>
                 </th>
             </tr>
             </thead>
             <tbody>
             @foreach ($journals as $item)
-                <a href="/journals/{{ $item->id }}">
+              
                     <tr>
                         <td>{{ $item->id }}</td>
                         <td>{{ $item->name }}</td>

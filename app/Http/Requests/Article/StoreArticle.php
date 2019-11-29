@@ -29,7 +29,7 @@ class StoreArticle extends FormRequest
             'key_words' => 'required',
             'annotation' => 'required|min:7',
             'author_id' => 'required',
-            'category_id'=> 'required' 
+            'journal_id' => 'required'
         ];
     }
 }

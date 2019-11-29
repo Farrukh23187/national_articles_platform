@@ -25,7 +25,7 @@
     </div>
 
     <div class="form-group pb-2">
-    <label for="journaltype_id">Jurnal categoriyasini tanlang | (Bir nechta categoriyani tanlash uchun yoki tanlanganni o'chirish uchun <b>{ctrl + sichqoncha} </b>tugmasini bosing)</label>
+    <label for="journal_categories[]">Jurnal categoriyasini tanlang | (Bir nechta categoriyani tanlash uchun yoki tanlanganni o'chirish uchun <b>{ctrl + sichqoncha} </b>tugmasini bosing)</label>
         <select id='testSelect1' multiple class="form-control" name="journal_categories[]" size="4">
             @foreach ($category as $categor)
             <option value='{{$categor->id}}' style="padding: 5px;border-top: 1px dashed black">{{$categor->name}}</option>
