@@ -21,10 +21,10 @@
                             <a class="nav-link " href="/">Bosh sahifa</a>
                           </li>-->
                           <li class="nav-item">
-                            <a class="nav-link" href="{{route('users.index')}}">Users</a>
+                            <a class="nav-link" href="{{route('users.index')}}">Foydalanuvchilar</a>
                           </li> 
                           <li class="nav-item">
-                            <a class="nav-link" href="/companies">Companies</a>
+                            <a class="nav-link" href="/companies">Tashkilotlar</a>
                           </li>
                           <li class="nav-item">
                             <a class="nav-link" href="/articles">Maqolalar</a>

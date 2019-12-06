@@ -15,14 +15,16 @@
                     <th>Maqola nomi</th>
                     <td>{{ $article->name }}</td>
             </tr>
+           
+            <tr class="th-sm">
+                <th>Maqola yili</th>
+                <td>{{ $article->year }}</td>
+            </tr>
             <tr class="th-sm">
                     <th>Maqola Maullifi</th>
                     <td>{{ $article->author->first_name }} {{ $article->author->last_name }}</td>
             </tr>
-            <tr class="th-sm">
-                    <th>Maqola categoriyasi</th>
-                    <td>{{ $article->category->name }}</td>
-            </tr>
+           
             <tr class="th-sm">
                     <th>Maqola kalit sozlari</th>
                     <td>{{ $article->key_words }}</td>
@@ -30,13 +32,20 @@
             <tr class="th-sm">
                     <th>Maqola annotatsiyasi</th>
                     <td>{{ $article->annotation }}</td>
-            </tr> <tr class="th-sm">
-                    <th>Maqola annotatsiyasi</th>
-                    <td>{{ $article->annotation }}</td>
-            </tr>
+            </tr> 
+
             <tr class="th-sm">
-                <th>Maqola yili</th>
-                <td>{{ $article->year }}</td>
+                    <th>Jurnal nomi</th>
+                    <td>{{ $article->journal->name }}</td>
+            </tr>
+
+            <tr class="th-sm">
+                <th>Maqola categoriyalari</th>
+                <td>
+                @foreach($article_categories as $category)
+                        {{ $category->category->name }} <br>
+                @endforeach
+                </td>
             </tr>
         </table>
 

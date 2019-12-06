@@ -14,7 +14,7 @@
                 <th>ID</th>
                 <th class="th-sm">Maqola Nomi</th>
                 <th class="th-sm">Maqola Muallifi</th>
-                <th class="th-sm">Maqola Categoriyasi</th>
+              
                 <th class="th-sm">Maqola kalit sozlari</th>
                 <th class="th-sm">Maqola annotatsiyasi</th>
                 <th class="th-sm">Maqola Yili</th>
@@ -26,18 +26,18 @@
                 <td>{{ $item->id }}</td>
                 <td>{{ $item->name }}</td>
                 <td>{{ $item->author->first_name }} {{ $item->author->last_name }}</td>
-                <td>{{ $item->category->name }}</td>
+                
                 <td>{{ $item->key_words }}</td>
                 <td>{{ $item->annotation }}</td>
                 <td>{{ $item->year }}</td>
 
                 <td >
-                    <a href="{{ route('articles.show', ['id' => $item->id]) }}" title="show" class="btn blue lighten-2 " style="padding:10px 20px">
-                        <i  class="fas fa-eye" aria-hidden="true"></i>
+                    <a href="{{ route('articles.show', ['id' => $item->id]) }}" title="show" class="btn blue lighten-2 " style="padding:10px 18px">
+                        <i  class="fas fa-eye" aria-hidden="true"> Show</i>
                     </a>
-                    <a href="{{ route('articles.edit', ['id' => $item->id]) }}" title="edit" class="btn blue lighten-2 " style="padding:10px 20px">
+                    <!-- <a href="{{ route('articles.edit', ['id' => $item->id]) }}" title="edit" class="btn blue lighten-2 " style="padding:10px 20px">
                         <i  class="fas fa-edit" aria-hidden="true"></i>
-                    </a>
+                    </a> -->
                     <form action="{{ route('articles.destroy', ['id' => $item->id] )}}" method="post">
                         {{ method_field('delete') }}
                         <button class="btn btn-danger" onclick="return confirm('Are you sure?')" title="delete" class="btn blue lighten-2 " style="padding:10px 18px">
