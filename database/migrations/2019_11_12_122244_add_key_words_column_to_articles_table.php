@@ -15,7 +15,7 @@ class AddKeyWordsColumnToArticlesTable extends Migration
     {
         Schema::table('articles', function (Blueprint $table) {
             $table->string('key_words');
-            $table->string('pdf');
+            $table->string('file')->nullable();
             $table->text('annotation');
             
         });
