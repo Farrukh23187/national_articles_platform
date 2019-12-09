@@ -45,9 +45,29 @@ class ArticleController extends Controller
     }
 
    
-    public function store(StoreArticle $request)
+    public function store(Request $request)
     {
-        $article = Article::create($request->validated());
+        // dd($request);
+        // $request2 = request();
+        $data = request()->validate([
+            'name' => 'required|min:4',
+            'year' => 'required',
+            'key_words' => 'required',
+            'annotation' => 'required|min:7',
+            'author_id' => 'required',
+            'journal_id' => 'required',
+            'file' => 'required|max:10000|mimes:doc,docx,pdf,djvu,odt,xlsx'
+        ]);
+        if($file = $request->file('file')){
+            $name = $file->getClientOriginalName();
+            if($file->move('files', $name)){
+                $article = Article::create($data);
+                $this->storeFile($article);
+                // dd($article->file);
+            }
+              
+        };
+
         // dd($article);
 
         $request1 = request();
@@ -119,5 +139,14 @@ class ArticleController extends Controller
     {
         $article->delete();
         return redirect('articles');
+    }
+
+    private function storeFile($article){
+        
+            $article->update([
+                'file' => request()->file('file')->getClientOriginalName(),
+            ]);
+           
+        
     }
 }
