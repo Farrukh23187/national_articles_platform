@@ -49,7 +49,7 @@ class JournalController extends Controller
             
             // dd($journal_categories);
 
-        return redirect('journals');
+        return redirect()->route('journals.index');
 
     }
 
@@ -95,6 +95,6 @@ class JournalController extends Controller
     public function destroy(Journal $journal)
     {
         $journal->delete();
-        return redirect('journals');
+        return redirect()->route('journals.index');
     }
 }

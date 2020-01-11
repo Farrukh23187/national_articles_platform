@@ -18,7 +18,7 @@ Route::view('/home', 'home');
 Route::view('/about', 'about');
 
 Route::get('/search', 'CompanyController@search');
-Route::resource('companies', 'CompanyController');
+// Route::resource('companies', 'CompanyController');
 
 Route::get('/search_employee', 'EmployeeController@search');
 Route::resource('employees', 'EmployeeController');
@@ -37,7 +37,7 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::view('/backend','backend.login')->name('backend');
 Route::post('/backend','AuthController@login')->name('backend');
 
-Route::middleware(['auth:web'])->group(function () {
+Route::middleware(['auth:web'])->prefix('backend')->group(function () {
     Route::resources([
         'users' => 'UserController',
         'roles' => 'RoleController',
@@ -45,7 +45,8 @@ Route::middleware(['auth:web'])->group(function () {
         'categories' => 'CategoryController',
         'articles' => 'ArticleController',
         'authors' => 'AuthorController',
-        'journals' => 'JournalController'
+        'journals' => 'JournalController',
+        'companies' => 'CompanyController'
         ]);
         Route::get('/json-categories','ArticleController@selectAjax');
 

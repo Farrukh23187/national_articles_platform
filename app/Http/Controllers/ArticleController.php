@@ -81,7 +81,7 @@ class ArticleController extends Controller
         }
         // dd($article_categories);
 
-        return redirect('articles');
+        return redirect()->route('articles.index');
     }
 
     public function selectAjax(Request $request)
@@ -138,7 +138,7 @@ class ArticleController extends Controller
     public function destroy(Article $article)
     {
         $article->delete();
-        return redirect('articles');
+        return redirect()->route('articles.index');
     }
 
     private function storeFile($article){

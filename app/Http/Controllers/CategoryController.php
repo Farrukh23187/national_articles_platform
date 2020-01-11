@@ -40,7 +40,7 @@ class CategoryController extends Controller
     public function store(StoreCategory $request)
     {
         $category = Category::create($request->validated());
-        return redirect('categories');
+        return redirect()->route('categories.index');
     }
 
     /**
@@ -86,6 +86,6 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         $category->delete();
-        return redirect('categories');
+        return redirect()->route('categories.index');
     }
 }

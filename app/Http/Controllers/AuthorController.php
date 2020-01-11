@@ -27,7 +27,7 @@ class AuthorController extends Controller
     public function store(StoreAuthor $request)
     {
         $author = Author::create($request->validated());
-        return redirect('authors');
+        return redirect()->route('authors.index');
     }
 
     public function show(Author $author)
@@ -50,6 +50,6 @@ class AuthorController extends Controller
     public function destroy(Author $author)
     {
         $author->delete();
-        return redirect('authors');
+        return redirect()->route('authors.index');
     }
 }

@@ -11,7 +11,7 @@
 <hr>
     <div class="container">
         
-<a  href="/companies/create" class="btn btn-success">Add New Company</a>
+<a  href="{{route('companies.create')}}" class="btn btn-success">Add New Company</a>
 {{-- <a href="{{ route('vacancy.create') }}" class="btn btn-primary">Create vacancy</a> --}}
 <div class="col-md-4">
     <form action="/search" method="get">

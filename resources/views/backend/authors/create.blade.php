@@ -8,7 +8,7 @@
     <div class="row">
         <div class="col-md-12">
 
-            <form action="/authors" method="post" enctype="multipart/form-data">
+            <form action="{{route('authors.store')}}" method="post" enctype="multipart/form-data">
                 @include('backend.authors.form')
 
                 <button type="submit" class="btn btn-primary">Create</button>

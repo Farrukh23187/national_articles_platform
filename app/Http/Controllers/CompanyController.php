@@ -64,7 +64,7 @@ class CompanyController extends Controller
 
         $company->create($data); 
         // Company::create($data);
-        return redirect('companies');
+        return redirect()->route('companies.index');
     }
 
     /**
@@ -109,7 +109,7 @@ class CompanyController extends Controller
     
 
     $company->update($data);      
-        return redirect('companies');
+        return redirect()->route('companies.index');
     }
 
     /**
@@ -121,6 +121,6 @@ class CompanyController extends Controller
     public function destroy(Company $company)
     {
         $company->delete();
-        return redirect('companies');
+        return redirect()->route('companies.index');
     }
 }

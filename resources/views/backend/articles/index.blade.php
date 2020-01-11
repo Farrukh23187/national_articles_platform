@@ -32,7 +32,7 @@
                 <td>{{ $item->annotation }}</td>
                 <td>{{ $item->year }}</td>
                 <td>
-                    <a href="files/{{ $item->file }}" download="{{ $item->file }}">
+                    <a href="../files/{{ $item->file }}" download="{{ $item->file }}">
                         <button type="button" class="btn btn-primary" style="padding:10px 18px">
                             <i class="fas fa-download"> yuklab olish</i>
                         </button>
