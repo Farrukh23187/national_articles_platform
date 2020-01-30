@@ -35,6 +35,12 @@
     </div>
 
     <div class="form-group pb-2">
+        <label for="pdf">Pdf faylni kiriting</label>
+        <input type="file" name="file" id="" class="form-control">
+        <div class="text-danger">{{$errors->first('file')}}</div>
+
+    </div>
+    <div class="form-group pb-2">
         <label for="journal">Jurnalni tanlang</label>
         <select id="journal" class="form-control" name="journal_id">
             <option value="" disabled selected>Jurnalni tanlang</option>
@@ -44,10 +50,10 @@
                     <option value="{{ $jurnal->id }}">{{ $jurnal->name }}</option> 
                  @endforeach
             @else 
-                    <option value="">jurnallar kiritilmagan</option> 
+                    <option value="">Jurnallar kiritilmagan</option> 
             @endif
         </select>
-        <div class="text-danger">{{$errors->first('journal')}}</div>
+        <div class="text-danger">{{$errors->first('journal_id')}}</div>
     </div>
 
     <div class="form-group pb-2">
@@ -57,6 +63,7 @@
             <option value="" disabled >Avval jurnalni tanlang</option>
         </select>
     </div>
+
 
 </div>
 </div>

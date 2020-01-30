@@ -6,8 +6,8 @@
 <div class="container" style="background-color: white; padding: 10px; margin-top: 20px">
     <div class="row" >
         <div class="col-md-12">
-            <form action="/articles" method="post" enctype="multipart/form-data">
-                @include('backend.articles.form')                
+            <form action="{{route('articles.store')}}" method="post" enctype="multipart/form-data">
+                  @include('backend.articles.form')
             <button type="submit" class="btn btn-primary">Create</button>
             </form>
         </div>
@@ -21,7 +21,7 @@
       $('#journal').on('change', function(e){
         console.log(e);
         var journal_id = e.target.value;
-        $.get('/json-categories?journal_id=' + journal_id,function(data) {
+        $.get('/backend/json-categories?journal_id=' + journal_id,function(data) {
           console.log(data);
           $('#category').empty();
           $('#category').append('<option value="0" disabled selected="true">=== Categoriyani tanlang ===</option>');

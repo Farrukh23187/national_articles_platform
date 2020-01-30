@@ -24,10 +24,10 @@
                             <a class="nav-link" href="{{route('users.index')}}">Foydalanuvchilar</a>
                           </li> 
                           <li class="nav-item">
-                            <a class="nav-link" href="/companies">Tashkilotlar</a>
+                            <a class="nav-link" href="{{ route('companies.index') }}">Tashkilotlar</a>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link" href="/articles">Maqolalar</a>
+                            <a class="nav-link" href="{{ route('articles.index') }}">Maqolalar</a>
                           </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('authors.index') }}">Mualliflar</a>

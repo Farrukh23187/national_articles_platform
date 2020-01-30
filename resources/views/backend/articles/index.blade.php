@@ -18,6 +18,7 @@
                 <th class="th-sm">Maqola kalit sozlari</th>
                 <th class="th-sm">Maqola annotatsiyasi</th>
                 <th class="th-sm">Maqola Yili</th>
+                <th class="th-sm">Maqola Fayli</th>
             </tr>
         </thead>
         <tbody>
@@ -30,6 +31,13 @@
                 <td>{{ $item->key_words }}</td>
                 <td>{{ $item->annotation }}</td>
                 <td>{{ $item->year }}</td>
+                <td>
+                    <a href="../files/{{ $item->file }}" download="{{ $item->file }}">
+                        <button type="button" class="btn btn-primary" style="padding:10px 18px">
+                            <i class="fas fa-download"> yuklab olish</i>
+                        </button>
+                    </a>
+                </td>
 
                 <td >
                     <a href="{{ route('articles.show', ['id' => $item->id]) }}" title="show" class="btn blue lighten-2 " style="padding:10px 18px">

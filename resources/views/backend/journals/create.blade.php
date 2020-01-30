@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-md-12">
 
-            <form action="/journals" method="post" enctype="multipart/form-data">
+            <form action="{{route('journals.store')}}" method="post" enctype="multipart/form-data">
                 @include('backend.journals.form')
 
                 <button type="submit" class="btn btn-primary">Create</button>
