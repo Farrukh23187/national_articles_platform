@@ -50,10 +50,12 @@ Route::middleware(['auth:web'])->prefix('backend')->group(function () {
         ]);
         Route::get('/json-categories','ArticleController@selectAjax');
 
-        Route::get('logout', 'AuthController@logout')->name('backend.logout');
-        Route::view('/backend/index', 'backend/index')->name('index');
+        Route::post('logout', 'AuthController@logout')->name('backend.logout');
+        Route::view('index', 'backend.index')->name('index');
         
 });
+
+Route::get('articles', 'Frontend\ResourceController@article')->name('articles');
         // Route::resource('categories', 'CategoryController')->middleware('auth');
         // Route::resource('types', 'TypeController')->middleware('auth');
         // Route::resource('articles', 'ArticleController')->middleware('auth');
