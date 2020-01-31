@@ -5,7 +5,7 @@
   <div class="row">
 
     <div class="col-md-3">
-    <h1>love is</h1>
+    <h1>Maqolalar</h1>
 
     </div>
 
@@ -33,7 +33,7 @@
       @foreach($article as $item)
         <tr style="height: 30px:importable">
           <th scope="row">{{$item->id}}</th>
-          <td>{{$item->name}}</td>
+          <td><a href="{{route('articleShow', ['article' => $item->id])}}" style="text-decoration: underline; "><b>{{$item->name}}</b></a></td>
           <td>{{$item->key_words}}</td>
           <td>{{$item->annotation}}</td>
           <td>{{$item->year}}</td>
