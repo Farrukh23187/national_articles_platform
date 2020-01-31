@@ -3,23 +3,22 @@
 <!-- Jumbotron -->
 <div
   class="card card-image"
-  style="background-image: url(https://bashooka.com/wp-content/uploads/2018/04/scg-canvas-background-animation-19.jpg);"
->
+  style="background-image: url(https://ru.tokkoro.com/picsup/3359863-sony-mobile-xperia-books-television-mobile-phone.jpg); background-repeat: no-repeat; width: 100% ">
   <div class="text-white text-center rgba-stylish-strong py-5 px-4">
     <div class="py-5">
       <!-- Content -->
       <h5 class="h5 orange-text">
-        <i class="fas fa-camera-retro"></i>
-        Photography
+        <i class="fas fa-book"></i>
+        Scopus.com.uz
       </h5>
-      <h2 class="card-title h2 my-4 py-2">Jumbotron with image overlay</h2>
+      <h2 class="card-title h2 my-4 py-2">Ilmiy maqolalar va konferensiyalar milliy tizimiga xush kelibsiz!</h2>
       <p class="mb-4 pb-2 px-md-5 mx-md-5">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur obcaecati vero aliquid libero doloribus ad,
         unde tempora maiores, ullam, modi qui quidem minima debitis perferendis vitae cumque et quo impedit.
       </p>
-      <a class="btn peach-gradient">
+      <a class="btn peach-gradient" href="{{route('articles')}}">
         <i class="fas fa-clone left"></i>
-        View project
+        Maqolalar
       </a>
     </div>
   </div>
@@ -217,7 +216,7 @@
 
   <!-- Copyright -->
   <div class="footer-copyright text-center py-3">&copy; <?=date('Y')?> Copyright:
-    <a href="https://mdbootstrap.com/education/bootstrap/"> Scopus.com</a>
+    <a href="https://mdbootstrap.com/education/bootstrap/"> Scopus.com.uz</a>
   </div>
   <!-- Copyright -->
 
