@@ -57,6 +57,7 @@ Route::middleware(['auth:web'])->prefix('backend')->group(function () {
 
 Route::get('articles', 'Frontend\ResourceController@article')->name('articles');
 Route::get('articles/{article}', 'Frontend\ResourceController@articleShow')->name('articleShow');
+Route::get('filterArticles', 'Frontend\ResourceController@filterArticles')->name('filterArticles');
         // Route::resource('categories', 'CategoryController')->middleware('auth');
         // Route::resource('types', 'TypeController')->middleware('auth');
         // Route::resource('articles', 'ArticleController')->middleware('auth');

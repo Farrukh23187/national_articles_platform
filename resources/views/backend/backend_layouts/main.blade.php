@@ -19,7 +19,6 @@
     <!-- Your custom styles (optional) -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet" />
 
-    <!-- <link href="{{asset('multiselect/multiselect.css')}}" rel="stylesheet"/> -->
     <style type="text/css">
       body{
         background-image: url('http://www.bruna.cat/imgdownload/full/130/1304132/sky-blue-background-wallpaper.jpg');
@@ -68,11 +67,7 @@
     </div>
    
     <!-- Scripts -->
-    <!-- <script src="{{ asset('js/app.js') }}"></script> -->
     <script type="text/javascript" src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
-    <!-- Bootstrap tooltips -->
-    <!-- <script type="text/javascript" src="asset('js/popper.min.js'"></script> -->
-    <!-- Bootstrap core JavaScript -->
     <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="{{ asset('js/mdb.min.js') }}"></script>

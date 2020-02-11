@@ -7,9 +7,18 @@
     <div class="col-md-3">
     <h1>Maqolalar</h1>
 
+      <div style="" class="col-xs-6 ">
+        <select class="form-control" id="CategoryId">
+          <option value="">Kategoriyani tanlang</option>
+          @foreach(App\Category::all() as $category)
+            <option class="option" value="{{$category->id}}">{{$category->name}}</option>
+          @endforeach
+        </select>
+      </div>
+      <button id="findBtn" class="btn btn-primary">Find</button>
     </div>
 
-    <div class="col-md-9">
+    <div id="productData" class="col-md-9">
       <!--Table-->
       <!-- <div style="width:100%; height:80px; overflow:scroll;"> -->
       <table class="table table-hover table-fixed" style="background-color: lightblue;">
@@ -31,7 +40,7 @@
       <!--Table body-->
       <tbody>
       @foreach($article as $item)
-        <tr style="height: 30px:importable">
+        <tr style="">
           <th scope="row">{{$item->id}}</th>
           <td><a href="{{route('articleShow', ['article' => $item->id])}}" style="text-decoration: underline; "><b>{{$item->name}}</b></a></td>
           <td>{{$item->key_words}}</td>
@@ -51,6 +60,10 @@
       </div>
     
     
-  </div>  
-</div>
+  </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+@include('frontend.articles.ourJsFile')
 @endsection
