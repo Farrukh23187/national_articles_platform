@@ -31,7 +31,6 @@
           <th>Maqola Kalit So'zlari</th>
           <th>Maqola Annotatsiyasi</th>
           <th>Maqola Yili</th>
-          <th>Maqola Muallifi</th>
           <th>Maqola Jurnali</th>
         </tr>
       </thead>
@@ -46,7 +45,6 @@
           <td>{{$item->key_words}}</td>
           <td>{{$item->annotation}}</td>
           <td>{{$item->year}}</td>
-          <td>{{$item->author->first_name}} {{$item->author->last_name}}</td>
           <td>{{$item->journal->name}}</td>
         </tr>
         @endforeach

@@ -13,8 +13,6 @@
             <tr>
                 <th>ID</th>
                 <th class="th-sm">Maqola Nomi</th>
-                <th class="th-sm">Maqola Muallifi</th>
-              
                 <th class="th-sm">Maqola kalit sozlari</th>
                 <th class="th-sm">Maqola annotatsiyasi</th>
                 <th class="th-sm">Maqola Yili</th>
@@ -26,8 +24,6 @@
             <tr>
                 <td>{{ $item->id }}</td>
                 <td>{{ $item->name }}</td>
-                <td>{{ $item->author->first_name }} {{ $item->author->last_name }}</td>
-                
                 <td>{{ $item->key_words }}</td>
                 <td>{{ $item->annotation }}</td>
                 <td>{{ $item->year }}</td>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\ArticleAuthor;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Article;
@@ -20,7 +21,9 @@ class ResourceController extends Controller
     {
 
         $article_categories = ArticleCategory::where('article_id', $article->id)->get();
-        return view('frontend.articles.show', compact('article', 'article_categories'));
+        $article_authors = ArticleAuthor::where('article_id', $article->id)->get();
+
+        return view('frontend.articles.show', compact('article', 'article_categories', 'article_authors'));
     }
 
     public function filterArticles(Request $request){

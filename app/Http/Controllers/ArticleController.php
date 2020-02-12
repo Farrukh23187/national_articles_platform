@@ -9,6 +9,7 @@ use App\Category;
 use App\Journal;
 use App\JournalCategory;
 use App\ArticleCategory;
+use App\ArticleAuthor;
 use App\Http\Requests\Article\StoreArticle;
 use App\Http\Requests\Article\UpdateArticle;
 use DB;
@@ -25,6 +26,7 @@ class ArticleController extends Controller
     public function index()
     {
         $article = Article::all();
+//        dd($article);
         return view('backend.articles.index', compact('article'));
     }
 
@@ -38,9 +40,9 @@ class ArticleController extends Controller
         $article_category = ArticleCategory::all();
         $journal = Journal::all();
         $category = Category::all();
-        $author = Author::all();
+        $authors = Author::all();
        
-        return view('backend.articles.create', compact('article', 'author', 'journal'));
+        return view('backend.articles.create', compact('article', 'authors', 'journal'));
         
     }
 
@@ -54,7 +56,6 @@ class ArticleController extends Controller
             'year' => 'required',
             'key_words' => 'required',
             'annotation' => 'required|min:7',
-            'author_id' => 'required',
             'journal_id' => 'required',
             'file' => 'required|max:10000|mimes:doc,docx,pdf,djvu,odt,xlsx'
         ]);
@@ -73,11 +74,20 @@ class ArticleController extends Controller
         $request1 = request();
         
         $article_id = Article::orderBy('id', 'desc')->first();
+
+        foreach($request->article_authors as $key => $authors){
+            $article_authors = new ArticleAuthor();
+            $article_authors->article_id = $article_id->id;
+            $article_authors->author_id = $request->article_authors[$key];
+            $article_authors->save();
+//             dd($article_authors);
+        }
+
         foreach($request1->article_categories as $key => $categories){
-            $article_categories = new Articlecategory();
+            $article_categories = new ArticleCategory();
             $article_categories->article_id = $article_id->id;
             $article_categories->category_id = $request1->article_categories[$key];
-            $article_categories->save();   
+            $article_categories->save();
         }
         // dd($article_categories);
 
@@ -91,7 +101,7 @@ class ArticleController extends Controller
             ->join('journal_categories', 'journal_categories.category_id', 'categories.id')
             ->select('categories.name', 'categories.id')
             ->where('journal_categories.journal_id', $journal_id)
-            ->groupBy('categories.id')
+//            ->groupBy('categories.id')
             ->orderBy('categories.name', 'asc')
             ->get();
      
@@ -103,7 +113,8 @@ class ArticleController extends Controller
     {
 
         $article_categories = ArticleCategory::where('article_id', $article->id)->get();
-        return view('backend.articles.show', compact('article', 'article_categories'));
+        $article_authors = ArticleAuthor::where('article_id', $article->id)->get();
+        return view('backend.articles.show', compact('article', 'article_categories', 'article_authors'));
     }
 
     /**

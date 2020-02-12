@@ -23,16 +23,17 @@
             <div class="text-danger">{{$errors->first('annotation')}}</div>
     </div>
 
-    <div class="form-group pb-2">
-            <label for="author_id">Muallifni tanlang</label>
-            <select name="author_id" id="" class="form-control">
-            <option value="">Muallifni tanlang</option>
-                @foreach ($author as $com)
-                <option value="{{ $com->id }}">{{ $com->first_name }} {{ $com->last_name }}</option>
+        <div class="form-group pb-2">
+            <label for="article_authors[]">Maqola muallifini tanlang | (Bir nechta mualliflarni tanlash uchun yoki tanlanganni o'chirish uchun <b>{ctrl + sichqoncha} </b>tugmasini bosing)</label>
+            <select id='testSelect1' multiple class="form-control" name="article_authors[]" size="4">
+                @foreach ($authors as $author)
+                    <option value='{{$author->id}}' style="padding: 5px;border-top: 1px dashed black">{{$author->first_name}} {{$author->last_name}}</option>
                 @endforeach
             </select>
-            <div class="text-danger">{{$errors->first('author_id')}}</div>
-    </div>
+            <script>
+                document.multiselect('#testSelect1');
+            </script>
+        </div>
 
     <div class="form-group pb-2">
         <label for="pdf">Pdf faylni kiriting</label>
