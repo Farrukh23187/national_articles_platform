@@ -54,11 +54,9 @@
                         </td> -->
                     <td >
                     <a href="{{ route('journals.show', ['id' => $item->id]) }}" title="show" class="btn blue lighten-2 " style="padding:10px 15px">
-                        <i  class="fas fa-eye" aria-hidden="true"></i>
+                        <i  class="fas fa-eye" aria-hidden="true">Show</i>
                     </a>
-                    <a href="{{ route('journals.edit', ['id' => $item->id]) }}" title="edit" class="btn blue lighten-2 " style="padding:10px 15px">
-                        <i  class="fas fa-edit" aria-hidden="true"></i>
-                    </a>
+                    
                     <form action="{{ route('journals.destroy', ['id' => $item->id] )}}" method="post">
                         {{ method_field('delete') }}
                         <button class="btn btn-danger" onclick="return confirm('Are you sure?')" title="delete" class="btn blue lighten-2 " style="padding:10px 15px">
