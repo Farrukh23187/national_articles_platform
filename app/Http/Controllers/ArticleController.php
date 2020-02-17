@@ -56,6 +56,7 @@ class ArticleController extends Controller
             'year' => 'required',
             'key_words' => 'required',
             'annotation' => 'required|min:7',
+            'status' => 'required',
             'journal_id' => 'required',
             'file' => 'required|max:10000|mimes:doc,docx,pdf,djvu,odt,xlsx'
         ]);

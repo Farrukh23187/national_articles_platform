@@ -14,9 +14,17 @@
             <option class="option" value="{{$category->id}}">{{$category->name}}</option>
           @endforeach
         </select>
+      </div> <br>
+      <div class="col-xs-6">
+        <input id="key_words" type="text" class="form-control" name="key_words" placeholder="Search by key words">
       </div>
       <button id="findBtn" class="btn btn-primary">Find</button>
+      <a href="{{route('articles')}}" class="btn btn-default">RESET</a>
+    <hr>
+
     </div>
+
+
 
     <div id="productData" class="col-md-9">
       <!--Table-->

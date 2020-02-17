@@ -34,7 +34,15 @@
                 document.multiselect('#testSelect1');
             </script>
         </div>
-
+        <div class="form-group pb-2">
+            <label for="status">Maqola statusi </label>
+            <!-- State dropdown -->
+            <select class="form-control" name="status">
+                <option value="1" >Bepul maqola</option>
+                <option value="0" >Hozircha aktiv emas</option>
+                <option value="2" >Pullik maqola</option>
+            </select>
+        </div>
     <div class="form-group pb-2">
         <label for="pdf">Pdf faylni kiriting</label>
         <input type="file" name="file" id="" class="form-control">
