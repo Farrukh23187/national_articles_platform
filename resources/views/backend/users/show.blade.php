@@ -14,6 +14,10 @@
                     <th>Full Name</th>
                     <td>{{ $user->fullname }}</td>
             </tr>
+            <tr class="th-sm">
+                    <th>Username</th>
+                    <td>{{ $user->username }}</td>
+            </tr>
             
             <tr class="th-sm">
                     <th>Email</th>
