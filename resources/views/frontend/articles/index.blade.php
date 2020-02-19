@@ -31,7 +31,7 @@
       </div>
       <br>
       <div class="col-xs-6">
-        <input id="key_words" type="text" class="form-control" name="key_words" placeholder="Search by key words">
+        <input id="key_words" type="text" class="form-control" name="key_words" placeholder="Kalit so'zlar orqali izlash">
 
       </div>
       <button id="findBtn" class="btn btn-primary">Find</button>
