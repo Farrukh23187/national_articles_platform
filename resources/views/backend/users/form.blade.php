@@ -12,6 +12,13 @@
             <div class="text-danger">{{$errors->first('email')}}</div>
         </div>
         <div class="form-group">
+        <div class="form-group">
+            <label>username</label>
+            
+            <input class="form-control" name="username" value="{{ old('username') ?? $user->username}}">
+            <div class="text-danger">{{$errors->first('username')}}</div>
+
+        </div>
         <!-- <input type="hidden" value="" name="show_password"> -->
             <label>Parol</label>
             

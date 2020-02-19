@@ -62,11 +62,11 @@ class JournalController extends Controller
 
     public function edit(Journal $journal)
     {
-        $company = Company::all();
-        $category = Category::all();
-        $journaltype = JournalType::all();
-        $journal_category = JournalCategory::where('journal_id', '!=', $journal->id)->get();
-        return view('backend.journals.edit', compact('journal', 'journal_category', 'company', 'journaltype', 'category'));
+        // $company = Company::all();
+        // $category = Category::all();
+        // $journaltype = JournalType::all();
+        // $journal_category = JournalCategory::where('journal_id', '!=', $journal->id)->get();
+        // return view('backend.journals.edit', compact('journal', 'journal_category', 'company', 'journaltype', 'category'));
     }
 
     public function update(Request $request, Journal $journal)

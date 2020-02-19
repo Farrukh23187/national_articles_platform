@@ -12,6 +12,7 @@
                 <th>ID</th>
                 <th class="th-sm">Foydalanuvchi FIO</th>
                 <th class="th-sm">Foydalanuvchi Email</th>
+                <th class="th-sm">Foydalanuvchi Username</th>
                 <th class="th-sm">Foydalanuvchi Phone</th>
                 <!-- <th class="th-sm">Foydalanuvchi Companiyasi</th> -->
                 <th class="th-sm">Operations</th>
@@ -23,6 +24,7 @@
                 <td>{{ $item->id }}</td>
                 <td>{{ $item->fullname }}</td>
                 <td>{{ $item->email }}</td>
+                <td>{{ $item->username }}</td>
                 <td>{{ $item->phone }}</td>
 
                 <td >

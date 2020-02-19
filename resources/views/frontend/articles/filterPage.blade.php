@@ -20,7 +20,7 @@
         @foreach($data as $item)
             <tr style="">
                 <th scope="row">{{$item->id}}</th>
-                <td><a href="{{route('articleShow', ['article' => $item->article_id])}}" style="text-decoration: underline; "><b>{{$item->name}}</b></a></td>
+                <td><a href="{{route('articleShow', ['article' => isset($item->article_id) ? $item->article_id : $item->id])}}" style="text-decoration: underline; "><b>{{$item->name}}</b></a></td>
                 <td>{{$item->key_words}}</td>
                 <td>{{$item->annotation}}</td>
                 <td>{{$item->year}}</td>

@@ -21,8 +21,12 @@
                 <td>{{ $article->year }}</td>
             </tr>
             <tr class="th-sm">
-                    <th>Maqola Maullifi</th>
-                    <td>{{ $article->author->first_name }} {{ $article->author->last_name }}</td>
+                    <th>Maqola Muallifi</th>
+                <td>
+                    @foreach($article_authors as $authors)
+                        {{ $authors->author->first_name }} {{ $authors->author->last_name }} <br>
+                    @endforeach
+                </td>
             </tr>
            
             <tr class="th-sm">

@@ -14,8 +14,8 @@
             
 {{ csrf_field() }}
             <div class="form-group">
-                <label for="exampleInputEmail1">Login</label>
-                <input class="form-control" name="email">
+                <label for="exampleInputEmail1">Username</label>
+                <input class="form-control" name="username">
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">Password</label>

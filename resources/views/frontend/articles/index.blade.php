@@ -20,6 +20,7 @@
           @endforeach
         </select>
       </div> <br>
+
       <div style="" class="col-xs-6 ">
         <select class="form-control" id="AuthorId">
           <option value="">Muallifni tanlang</option>
@@ -28,8 +29,18 @@
           @endforeach
         </select>
       </div>
+      <br>
+      <div class="col-xs-6">
+        <input id="key_words" type="text" class="form-control" name="key_words" placeholder="Search by key words">
+
+      </div>
       <button id="findBtn" class="btn btn-primary">Find</button>
+      <a href="{{route('articles')}}" class="btn btn-default">RESET</a>
+    <hr>
+
     </div>
+
+
 
     <div id="productData" class="col-md-9">
       <!--Table-->
@@ -44,7 +55,6 @@
           <th>Maqola Kalit Sozlari</th>
           <th>Maqola Annotatsiyasi</th>
           <th>Maqola Yili</th>
-          <th>Maqola Muallifi</th>
           <th>Maqola Jurnali</th>
         </tr>
       </thead>
@@ -59,7 +69,6 @@
           <td>{{$item->key_words}}</td>
           <td>{{$item->annotation}}</td>
           <td>{{$item->year}}</td>
-          <td>{{$item->author->first_name}} {{$item->author->last_name}}</td>
           <td>{{$item->journal->name}}</td>
         </tr>
         @endforeach

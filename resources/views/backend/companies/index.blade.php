@@ -52,7 +52,7 @@
                     <td>{{ $item->address }}</td>
                     <td>{{ $item->phone }}</td>
                    
-                    <!-- <td><img src="{{ asset("storage/$item->logo") }}" alt="" style="width: 10%; height: 10%:"></td> -->
+                 
                     <td><a href="https://{{ $item->website }}">{{ $item->website }}</a></td>
                     <td>
                         <a href="{{ route('companies.show', ['id' => $item->id]) }}" title="show" class="btn blue lighten-2 " style="padding:10px 20px">
