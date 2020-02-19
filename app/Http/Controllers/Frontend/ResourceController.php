@@ -24,19 +24,21 @@ class ResourceController extends Controller
     }
 
     public function filterArticles(Request $request){
-        $article = Article::all();
+        $author_id = $request->author_id;
         $cat_id = $request->cat_id;
 
-        if($cat_id!="" ){
+        if($cat_id!="" && $author_id!=""){
             $data = DB::table('articles')
                 ->join('article_categories','articles.id','article_categories.article_id')
+                // ->join('authors', 'authors.id', 'articles.author_id')
                 ->where('article_categories.category_id',$cat_id)
+                ->where('articles.author_id', $author_id)
                 ->get();
         }
         if(count($data)=="0"){
-            echo "<h1 align='center'>no products found under this Category</h1>";
+            echo "<h1 align='center'>Bunday Categoriya mansub bo'lgan maqola topilmadi</h1>";
         }else{
-//            return $data[0]->name;
+        //    return $data;
             return view('frontend.articles.filterPage',[
                 'data' => $data,
 

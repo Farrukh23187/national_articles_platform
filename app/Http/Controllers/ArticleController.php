@@ -91,7 +91,7 @@ class ArticleController extends Controller
             ->join('journal_categories', 'journal_categories.category_id', 'categories.id')
             ->select('categories.name', 'categories.id')
             ->where('journal_categories.journal_id', $journal_id)
-            ->groupBy('categories.id')
+            // ->groupBy('categories.id')
             ->orderBy('categories.name', 'asc')
             ->get();
      

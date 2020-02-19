@@ -1,6 +1,11 @@
 @extends('../layouts.app')
 
 @section('content')
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+@include('frontend.articles.ourJsFile')
 <div class="bg-white" style=" margin: 50px 30px">
   <div class="row">
 
@@ -12,6 +17,14 @@
           <option value="">Kategoriyani tanlang</option>
           @foreach(App\Category::all() as $category)
             <option class="option" value="{{$category->id}}">{{$category->name}}</option>
+          @endforeach
+        </select>
+      </div> <br>
+      <div style="" class="col-xs-6 ">
+        <select class="form-control" id="AuthorId">
+          <option value="">Muallifni tanlang</option>
+          @foreach(App\Author::all() as $author)
+            <option class="option" value="{{$author->id}}">{{$author->first_name}} {{$author->last_name}}</option>
           @endforeach
         </select>
       </div>
@@ -28,7 +41,7 @@
         <tr>
           <th>#</th>
           <th>Maqola Nomi</th>
-          <th>Maqola Kalit So'zlari</th>
+          <th>Maqola Kalit Sozlari</th>
           <th>Maqola Annotatsiyasi</th>
           <th>Maqola Yili</th>
           <th>Maqola Muallifi</th>
@@ -62,8 +75,4 @@
     
   </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
-@include('frontend.articles.ourJsFile')
 @endsection
