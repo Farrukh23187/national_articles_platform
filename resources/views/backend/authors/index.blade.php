@@ -9,7 +9,7 @@
         }
     </style>
     <hr>
-    <div class="container">
+    <div class="container" style="background-color: white; padding: 10px">
 
         <a  href="{{ route('authors.create') }}" class="btn btn-success">Yangi muallif qo'shish</a>
          {{--<a href="{{ route('vacancy.create') }}" class="btn btn-primary">Create vacancy</a>--}}

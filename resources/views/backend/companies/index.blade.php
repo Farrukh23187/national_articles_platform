@@ -9,7 +9,7 @@
     }
 </style>
 <hr>
-    <div class="container">
+    <div class="container" style="background-color: white; padding: 10px">
         
 <a  href="{{route('companies.create')}}" class="btn btn-success">Add New Company</a>
 {{-- <a href="{{ route('vacancy.create') }}" class="btn btn-primary">Create vacancy</a> --}}

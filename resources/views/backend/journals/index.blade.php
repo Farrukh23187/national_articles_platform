@@ -9,7 +9,7 @@
         }
     </style>
     <hr>
-    <div class="container">
+    <div class="container" style="background-color: white; padding: 10px">
 
         <a  href="{{ route('journals.create') }}" class="btn btn-success">Yangi Jurnal qo'shish</a>
 
