@@ -11,6 +11,11 @@ use App\ArticleCategory;
 use Illuminate\Support\Facades\DB;
 class ResourceController extends Controller
 {
+    protected $response = [
+        'success' => true,
+        'result' => [],
+        'error' => []
+    ];
     private $repo;
     public function __construct()
     {
@@ -105,6 +110,21 @@ class ResourceController extends Controller
         $result = Article::where('key_words','LIKE','%'.$request->key_words.'%')->get();
 
             dd($result);
+    }
+
+    public function select(Request $request){
+        $article = DB::table('articles')
+            ->join('article_categories', 'articles.id', 'article_categories.article_id')
+            ->join('article_authors', 'articles.id', 'article_authors.article_id')
+            ->join('authors', 'article_authors.author_id', 'authors.id')
+            ->join('categories', 'article_categories.category_id', 'categories.id')
+            ->join('journals', 'articles.journal_id', 'journals.id')
+            ->select('articles.*', 'authors.first_name', 'authors.last_name', 'categories.name as category', 'journals.name as journal')
+            ->groupBy('articles.id', 'authors.id',  'journals.id')
+            ->get();
+
+        $this->response['result'] = ['citizens' => $article];
+        return response()->json($this->response);
     }
 
 }
