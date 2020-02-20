@@ -2,10 +2,11 @@
 
 @section('content')
 <div class="bg-white" style=" margin: 50px 30px">
+  <div style="background: #d9d9d9; padding: 10px 30px; font-size: 45px;"><i class="fas fa-book left"> </i> Maqolalar</div>
+<br>
   <div class="row">
 
     <div class="col-md-3">
-    <h1>Maqolalar</h1>
 
       <div style="" class="col-xs-6 ">
         <select class="form-control" id="CategoryId">
@@ -29,7 +30,7 @@
     <div id="productData" class="col-md-9">
       <!--Table-->
       <!-- <div style="width:100%; height:80px; overflow:scroll;"> -->
-      <table class="table table-hover table-fixed" style="background-color: lightblue;">
+      <table class="table table-hover table-fixed" style="background-color: #e3e3e3;">
 
       <!--Table head-->
       <thead>
