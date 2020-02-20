@@ -1,5 +1,5 @@
 @extends('backend/backend_layouts.main') @section('title', 'Edit for $user->fullname') @include('backend.nav') @section('content')
-    <div class="container">
+    <div class="container" style="background: #fefefe;">
         <div class="row">
             <div class="col-12">
                 <h3> {{ $user->fullname }} ni o'zgartirish</h3>

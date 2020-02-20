@@ -2,7 +2,7 @@
 @section('title', 'Create companies')
 @include('backend/nav')
 @section('content')
-<div class="container">
+<div class="container" style="background: #fefefe; padding:30px 20px; border-radius:10px; margin: 20px auto">
     <div class="row">
         <div class="col-md-12">
 

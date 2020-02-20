@@ -1,7 +1,7 @@
 @extends('backend/backend_layouts.main') @section('title', 'Maqolalar') @include('backend/nav') @section('content')
 
 <hr />
-<div class="container" style="background-color: white; padding: 10px">
+<div class="container" style="background-color: white; padding:30px 20px; border-radius:10px">
         <a  class="btn btn-success" href="{{ route('articles.create') }}">Yangi maqola kiritish</a>
     
  
