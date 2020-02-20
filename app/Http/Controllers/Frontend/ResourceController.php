@@ -34,25 +34,62 @@ class ResourceController extends Controller
     }
 
     public function filterArticles(Request $request){
-        $article = Article::all();
+        $author_id = $request->author_id;
         $cat_id = $request->cat_id;
         $key_words = $request->key_words;
 
-        if($cat_id!="" ){
+        if($cat_id!="" && $author_id!="" && $key_words!=""){
+            $data = DB::table('articles')
+                ->join('article_categories','articles.id','article_categories.article_id')
+                ->join('article_authors','articles.id','article_authors.article_id')
+                ->where('article_categories.category_id',$cat_id)
+                ->where('article_authors.author_id',$author_id)
+                ->where('articles.key_words','LIKE','%'.$key_words.'%')
+                ->get();
+        } 
+        else if($key_words!=""&& $author_id!=""){
+            $data = DB::table('articles')
+                ->join('article_authors','articles.id','article_authors.article_id')
+                ->where('article_authors.author_id',$author_id)
+                ->where('articles.key_words','LIKE','%'.$key_words.'%')
+                ->get();
+        }
+        else if($key_words!=""&& $cat_id!=""){
+            $data = DB::table('articles')
+                ->join('article_categories','articles.id','article_categories.article_id')
+                ->where('article_categories.category_id',$cat_id)
+                ->where('articles.key_words','LIKE','%'.$key_words.'%')
+                ->get();
+        }
+        else if($cat_id!=""&& $author_id!=""){
+            $data = DB::table('articles')
+                ->join('article_categories','articles.id','article_categories.article_id')
+                ->join('article_authors','articles.id','article_authors.article_id')
+                ->where('article_categories.category_id',$cat_id)
+                ->where('article_authors.author_id',$author_id)
+                ->get();
+        }
+        else if($key_words!=""){
+            $data = DB::table('articles')
+                ->where('articles.key_words','LIKE','%'.$key_words.'%')
+                ->get();
+        }
+        else if($cat_id!=""){
             $data = DB::table('articles')
                 ->join('article_categories','articles.id','article_categories.article_id')
                 ->where('article_categories.category_id',$cat_id)
                 ->get();
-        } else if($key_words!=""){
+        }
+        else if($author_id!=""){
             $data = DB::table('articles')
-//                ->join('article_categories','articles.id','article_categories.article_id')
-//                ->where('article_categories.category_id',$cat_id)
-                    ->where('articles.key_words','LIKE','%'.$key_words.'%')
+                ->join('article_authors','articles.id','article_authors.article_id')
+                ->where('article_authors.author_id',$author_id)
                 ->get();
         }
         if(count($data)=="0"){
-            echo "<h1 align='center'>no products found under this Category</h1>";
+            echo "<h1 align='center'>Bunday Categoriya mansub bo'lgan maqola topilmadi</h1>";
         }else{
+
 //            return $data;
             return view('frontend.articles.filterPage',[
                 'data' => $data,

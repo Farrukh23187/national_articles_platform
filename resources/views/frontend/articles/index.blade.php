@@ -1,6 +1,11 @@
 @extends('../layouts.app')
 
 @section('content')
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+@include('frontend.articles.ourJsFile')
 <div class="bg-white" style=" margin: 50px 30px">
   <div style="background: #d9d9d9; padding: 10px 30px; font-size: 45px;"><i class="fas fa-book left"> </i> Maqolalar</div>
 <br>
@@ -16,8 +21,19 @@
           @endforeach
         </select>
       </div> <br>
+
+      <div style="" class="col-xs-6 ">
+        <select class="form-control" id="AuthorId">
+          <option value="">Muallifni tanlang</option>
+          @foreach(App\Author::all() as $author)
+            <option class="option" value="{{$author->id}}">{{$author->first_name}} {{$author->last_name}}</option>
+          @endforeach
+        </select>
+      </div>
+      <br>
       <div class="col-xs-6">
-        <input id="key_words" type="text" class="form-control" name="key_words" placeholder="Search by key words">
+        <input id="key_words" type="text" class="form-control" name="key_words" placeholder="Kalit so'zlar orqali izlash">
+
       </div>
       <button id="findBtn" class="btn btn-primary">Find</button>
       <a href="{{route('articles')}}" class="btn btn-default">RESET</a>
@@ -37,7 +53,7 @@
         <tr>
           <th>#</th>
           <th>Maqola Nomi</th>
-          <th>Maqola Kalit So'zlari</th>
+          <th>Maqola Kalit Sozlari</th>
           <th>Maqola Annotatsiyasi</th>
           <th>Maqola Yili</th>
           <th>Maqola Jurnali</th>
@@ -69,8 +85,4 @@
     
   </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
-@include('frontend.articles.ourJsFile')
 @endsection

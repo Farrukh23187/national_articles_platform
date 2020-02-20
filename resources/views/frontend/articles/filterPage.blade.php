@@ -6,9 +6,10 @@
         <tr>
             <th>#</th>
             <th>Maqola Nomi</th>
-            <th>Maqola Kalit So'zlari</th>
+            <th>Maqola Kalit Sozlari</th>
             <th>Maqola Annotatsiyasi</th>
             <th>Maqola Yili</th>
+            <th>Muallif</th>
 
         </tr>
         </thead>
@@ -23,6 +24,7 @@
                 <td>{{$item->key_words}}</td>
                 <td>{{$item->annotation}}</td>
                 <td>{{$item->year}}</td>
+                <td>{{$item->author_id}}</td>
 
             </tr>
         @endforeach
