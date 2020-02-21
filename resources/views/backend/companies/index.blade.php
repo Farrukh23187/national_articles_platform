@@ -9,11 +9,11 @@
     }
 </style>
 <hr>
-    <div class="container" style="background-color: white; padding: 10px">
+    <div class="container" style="background-color: white; padding:30px 20px; border-radius:10px">
         
 <a  href="{{route('companies.create')}}" class="btn btn-success">Add New Company</a>
 {{-- <a href="{{ route('vacancy.create') }}" class="btn btn-primary">Create vacancy</a> --}}
-<div class="col-md-4">
+{{-- <div class="col-md-4">
     <form action="/search" method="get">
         <div class="input-group">
             <input type="search" class="form-control" name="search">
@@ -21,7 +21,7 @@
             <button type="submit" class="btn btn-primary">Search</button>
         </div>
     </form>
-</div>
+</div> --}}
 <h1>Companies</h1>
 
 <table id="dt-material-checkbox" class="table table-striped" cellspacing="0" width="100%">

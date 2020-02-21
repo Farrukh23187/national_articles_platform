@@ -2,7 +2,7 @@
 @section('title', 'DETAILS for  ' .$company->name)
 @include('backend/nav')
 @section('content')
-<div class="container">
+<div class="container" style="margin: 20px auto; background: #fefefe; padding:30px 20px; border-radius:10px ">
     <h1>Details for {{ $company->name }}</h1>
 
     <table id="dt-material-checkbox" class="table table-striped" cellspacing="0" width="100%">

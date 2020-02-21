@@ -3,7 +3,7 @@
 @include('backend/nav')
 @section('content')
 
-<div class="container" style="margin-top: 20px;">
+<div class="container" style="background: #fefefe; margin-top: 20px;">
     <h1> {{ $article->name }}ning malumotlari</h1>
 
     <table id="dt-material-checkbox" class="table table-striped" cellspacing="0" width="100%">

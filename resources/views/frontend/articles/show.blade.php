@@ -1,8 +1,9 @@
 @extends('../layouts.app')
 @section('title', 'DETAILS for  ' .$article->name)
 @section('content')
-
+    
 <div class="container" style="background-color: #f9f9f9;  margin-top: 20px; border-radius: 10px">
+
     <h1> {{ $article->name }}</h1>
 
     <table id="dt-material-checkbox" class="table table-striped" cellspacing="0" width="100%">

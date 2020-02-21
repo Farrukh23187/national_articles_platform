@@ -2,7 +2,7 @@
 @section('title', 'Edit for ' . $author->first_name)
 @include('backend/nav')
 @section('content')
-    <div class="container">    
+    <div class="container" style="background: #fefefe;">    
         <div class="row">
             <div class="col-12">
                 <h3>Edit for {{ $author->first_name }}</h3>
