@@ -31,7 +31,7 @@ Route::get('/', 'HomeController@index')->name('home');
 
 // Route::get('myform', 'AjaxDemoController@myform');
 // Route::get('select-ajax', 'ArticleController@selectAjax')->name('select-ajax');
-Route::view('/selectApi', 'frontend/articles/selectApi');
+//Route::view('/selectApi', 'frontend/articles/selectApi');
 Route::get('/select', 'Frontend\ResourceController@select');
 
 Route::view('/backend','backend.login')->name('backend');

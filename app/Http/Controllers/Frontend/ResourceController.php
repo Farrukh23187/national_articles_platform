@@ -23,9 +23,10 @@ class ResourceController extends Controller
     }
 
     public function article(){
-        $article = Article::all();
-        
-        return view('frontend.articles.index', compact('article'));
+        $article = Article::where('status', '!=', 0)->get();
+        $count  = 1;
+
+        return view('frontend.articles.index', compact('article', 'count'));
 
     }
 
@@ -42,6 +43,8 @@ class ResourceController extends Controller
         $author_id = $request->author_id;
         $cat_id = $request->cat_id;
         $key_words = $request->key_words;
+        $count  = 1;
+
 
         if($cat_id!="" && $author_id!="" && $key_words!=""){
             $data = DB::table('articles')
@@ -50,6 +53,7 @@ class ResourceController extends Controller
                 ->where('article_categories.category_id',$cat_id)
                 ->where('article_authors.author_id',$author_id)
                 ->where('articles.key_words','LIKE','%'.$key_words.'%')
+                ->where('articles.status', '!=', 0)
                 ->get();
         } 
         else if($key_words!=""&& $author_id!=""){
@@ -57,6 +61,7 @@ class ResourceController extends Controller
                 ->join('article_authors','articles.id','article_authors.article_id')
                 ->where('article_authors.author_id',$author_id)
                 ->where('articles.key_words','LIKE','%'.$key_words.'%')
+                ->where('articles.status', '!=', 0)
                 ->get();
         }
         else if($key_words!=""&& $cat_id!=""){
@@ -64,6 +69,7 @@ class ResourceController extends Controller
                 ->join('article_categories','articles.id','article_categories.article_id')
                 ->where('article_categories.category_id',$cat_id)
                 ->where('articles.key_words','LIKE','%'.$key_words.'%')
+                ->where('articles.status', '!=', 0)
                 ->get();
         }
         else if($cat_id!=""&& $author_id!=""){
@@ -72,23 +78,27 @@ class ResourceController extends Controller
                 ->join('article_authors','articles.id','article_authors.article_id')
                 ->where('article_categories.category_id',$cat_id)
                 ->where('article_authors.author_id',$author_id)
+                ->where('articles.status', '!=', 0)
                 ->get();
         }
         else if($key_words!=""){
             $data = DB::table('articles')
                 ->where('articles.key_words','LIKE','%'.$key_words.'%')
+                ->where('articles.status', '!=', 0)
                 ->get();
         }
         else if($cat_id!=""){
             $data = DB::table('articles')
                 ->join('article_categories','articles.id','article_categories.article_id')
                 ->where('article_categories.category_id',$cat_id)
+                ->where('articles.status', '!=', 0)
                 ->get();
         }
         else if($author_id!=""){
             $data = DB::table('articles')
                 ->join('article_authors','articles.id','article_authors.article_id')
                 ->where('article_authors.author_id',$author_id)
+                ->where('articles.status', '!=', 0)
                 ->get();
         }
         if(count($data)=="0"){
@@ -98,6 +108,7 @@ class ResourceController extends Controller
 //            return $data;
             return view('frontend.articles.filterPage',[
                 'data' => $data,
+                'count' => $count
 
             ]);
         }
@@ -119,12 +130,13 @@ class ResourceController extends Controller
             ->join('authors', 'article_authors.author_id', 'authors.id')
             ->join('categories', 'article_categories.category_id', 'categories.id')
             ->join('journals', 'articles.journal_id', 'journals.id')
-            ->select('articles.*', 'authors.first_name', 'authors.last_name', 'categories.name as category', 'journals.name as journal')
-            ->groupBy('articles.id', 'authors.id',  'journals.id')
+            ->select('articles.*')
+//            , 'authors.first_name', 'authors.last_name', 'categories.name as category', 'journals.name as journal'
+            ->groupBy('articles.id')
             ->get();
 
         $this->response['result'] = ['citizens' => $article];
-        return response()->json($this->response);
+        return view('frontend.articles.selectApi', ['article' => json_encode($article)]);
     }
 
 }

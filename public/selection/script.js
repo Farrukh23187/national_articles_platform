@@ -1,7 +1,7 @@
 $(function(){
     var dataGrid = $("#grid-container").dxDataGrid({
-        dataSource: sales,
-        keyExpr: "orderId",
+        dataSource: article,
+        keyExpr: "id",
         showBorders: true,
         selection: {
             mode: "multiple"
@@ -13,22 +13,15 @@ $(function(){
             visible: true
         },
         columns: [{
-            dataField: "orderId",
+            dataField: "id",
             caption: "Order ID",
             width: 90
         },
-            "city", {
-                dataField: "country",
+            "name", {
+                dataField: "key_words",
                 width: 180
             },
-            "region", {
-                dataField: "date",
-                dataType: "date"
-            }, {
-                dataField: "amount",
-                format: "currency",
-                width: 90
-            }]
+          ]
     }).dxDataGrid("instance");
 
     $("#select-all-mode").dxSelectBox({

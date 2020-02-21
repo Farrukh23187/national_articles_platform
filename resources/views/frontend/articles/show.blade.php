@@ -2,7 +2,7 @@
 @section('title', 'DETAILS for  ' .$article->name)
 @section('content')
 
-<div class="container" style="margin-top: 20px;">
+<div class="container" style="background-color: #f9f9f9;  margin-top: 20px; border-radius: 10px">
     <h1> {{ $article->name }}</h1>
 
     <table id="dt-material-checkbox" class="table table-striped" cellspacing="0" width="100%">
@@ -35,9 +35,13 @@
             <tr class="th-sm">
                     <th>Maqola annotatsiyasi</th>
                     <td>{{ $article->annotation }}</td>
-            </tr> 
-
+            </tr>
             <tr class="th-sm">
+                <th>Maqola Statusi</th>
+                <td>{{ ($article->status == 1) ? "Bepul" : "Pullik" }}</td>
+            </tr>
+
+        <tr class="th-sm">
                     <th>Jurnal nomi</th>
                     <td>{{ $article->journal->name }}</td>
             </tr>

@@ -57,6 +57,7 @@
           <th>Maqola Annotatsiyasi</th>
           <th>Maqola Yili</th>
           <th>Maqola Jurnali</th>
+          <th>Maqola Statusi</th>
         </tr>
       </thead>
       <!--Table head-->
@@ -64,16 +65,18 @@
       <!--Table body-->
       <tbody>
       @foreach($article as $item)
+
         <tr style="">
-          <th scope="row">{{$item->id}}</th>
+          <th scope="row">{{$count}}</th>
           <td><a href="{{route('articleShow', ['article' => $item->id])}}" style="text-decoration: underline; "><b>{{$item->name}}</b></a></td>
           <td>{{$item->key_words}}</td>
           <td>{{$item->annotation}}</td>
           <td>{{$item->year}}</td>
           <td>{{$item->journal->name}}</td>
+          <td>{{($item->status == 1) ? "Bepul" : "Pullik"}}</td>
         </tr>
+        <?php $count = $count+1;?>
         @endforeach
-
       </tbody>
       <!--Table body-->
 

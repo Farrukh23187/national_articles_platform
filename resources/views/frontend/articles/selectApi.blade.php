@@ -11,7 +11,8 @@
     <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/19.2.6/css/dx.common.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/19.2.6/css/dx.light.css" />
     <script src="https://cdn3.devexpress.com/jslib/19.2.6/js/dx.all.js"></script>
-    <script src="{{asset('selection/data.js')}}"></script>
+    <script src="{{asset('selection/data.js')}}">
+    </script>
     <link rel="stylesheet" type="text/css" href="{{asset('selection/style.css')}}" />
     <script src="{{asset('selection/script.js')}}"></script>
 </head>
@@ -20,6 +21,7 @@
     <div id="grid">
         <div id="grid-container"></div>
         <div class="options">
+
             <div class="caption">Options</div>
             <div class="option">
                 <span>Select All Mode</span>
