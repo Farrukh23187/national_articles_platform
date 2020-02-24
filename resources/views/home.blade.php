@@ -26,49 +26,38 @@
 <!-- Jumbotron -->
 <br />
 
-<div class="container">
+<div class="container-fluid" style="width: 100%">
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-4">
       <!-- Card -->
       <div class="card">
         <!-- Card image -->
-        <div class="view overlay">
-          <div class="embed-responsive embed-responsive-16by9">
-            <iframe
-              class="embed-responsive-item"
-              src="https://www.youtube.com/embed/v64KOxKVLVg"
-              allowfullscreen
-            ></iframe>
-          </div>
-          <a href="#!">
-            <div class="mask rgba-white-slight"></div>
-          </a>
-        </div>
+
 
         <!-- Card content -->
         <div class="card-body">
           <!-- Title -->
-          <h4 class="card-title">Card title</h4>
+          <h4 class="card-title">Saytga rusxatni tekshirish</h4>
           <!-- Text -->
           <p class="card-text">
-            Some quick example text to build on the card title and make up the bulk of the cards content.
+            Tizimga ruxsatni tekshirish orqali siz pullik maqolalardan foydalana olish yoki olmasligingizni tekshirishingiz mumkin
           </p>
           <!-- Button -->
-          <a href="#" class="btn btn-primary">Button</a>
+          <a href="#" class="btn btn-primary">Tizimga ruxsatni tekshirish</a>
         </div>
       </div>
       <!-- Card -->
     </div>
-    <div class="col-md-4">
-      <div class="jumbotron">
-        <h2 class="h1-responsive">Hello, world!</h2>
-        <p class="lead">
-          This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content
-          or information.
-        </p>
-        <hr class="my-2" />
-        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-        <a class="btn btn-primary btn-lg" role="button">Learn more</a>
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-body">
+          <img style="float: right" src="{{asset('images/skreen.png')}}" alt="Cinque Terre" width="200" height="150">
+          <h4 class="card-title">
+          Maqolalarni qidirish
+        </h4>
+          <p class="card-text">Maqolalarni qidirishda ularni muallifi, kategoriyasi, kalit so'zlari orqali qidirish imkoniyati mavjud.</p>
+        <a href="#" class="btn btn-primary " >Maqolalarni qidirish</a>
+        </div>
       </div>
     </div>
   </div> 
