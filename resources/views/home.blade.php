@@ -56,7 +56,7 @@
           Maqolalarni qidirish
         </h4>
           <p class="card-text">Maqolalarni qidirishda ularni muallifi, kategoriyasi, kalit so'zlari orqali qidirish imkoniyati mavjud.</p>
-        <a href="#" class="btn btn-primary " >Maqolalarni qidirish</a>
+        <a href="{{route('articles')}}" class="btn btn-primary " >Maqolalarni qidirish</a>
         </div>
       </div>
     </div>

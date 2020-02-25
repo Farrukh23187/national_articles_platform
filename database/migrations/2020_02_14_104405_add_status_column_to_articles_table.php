@@ -14,7 +14,7 @@ class AddStatusColumnToArticlesTable extends Migration
     public function up()
     {
         Schema::table('articles', function (Blueprint $table) {
-            $table->integer('status')->nullable()->default(1);
+            $table->integer('status')->nullable()->default(1); //0 -> vaqtincha activ emas; 1 -> bepul; 2 -> pullik maqolalar
         });
     }
 

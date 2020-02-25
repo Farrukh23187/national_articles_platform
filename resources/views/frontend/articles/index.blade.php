@@ -7,7 +7,7 @@
 
 @include('frontend.articles.ourJsFile')
 <div class="bg-white" style=" margin: 50px 30px">
-  <div style="background: #d9d9d9; padding: 10px 30px; font-size: 45px;"><i class="fas fa-book left"> </i> Maqolalar</div>
+  <div style="background: aliceblue; padding: 10px 30px; font-size: 45px;"><i class="fas fa-book left"> </i> Maqolalar</div>
 <br>
   <div class="row">
 
@@ -46,7 +46,7 @@
     <div id="productData" class="col-md-9">
       <!--Table-->
       <!-- <div style="width:100%; height:80px; overflow:scroll;"> -->
-      <table class="table table-hover table-fixed" style="background-color: #e3e3e3;">
+      <table class="table table-hover table-fixed" style="background-color: #fff; border-left: 3px solid #d8d8d8;">
 
       <!--Table head-->
       <thead>
@@ -68,7 +68,7 @@
 
         <tr style="">
           <th scope="row">{{$count}}</th>
-          <td><a href="{{route('articleShow', ['article' => $item->id])}}" style="text-decoration: underline; "><b>{{$item->name}}</b></a></td>
+          <td><a href="{{route('articleShow', ['article' => $item->id])}}" style="text-decoration: none; color: deepskyblue"><b>{{$item->name}}</b></a></td>
           <td>{{$item->key_words}}</td>
           <td>{{$item->annotation}}</td>
           <td>{{$item->year}}</td>
