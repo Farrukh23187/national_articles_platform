@@ -139,5 +139,12 @@ class ResourceController extends Controller
         return view('frontend.articles.selectApi', ['article' => json_encode($article)]);
     }
 
+    public function aboutUs(){
+        $article = Article::all();
+        return view('about', [
+           'article'=> $article
+        ]);
+    }
+
 }
 

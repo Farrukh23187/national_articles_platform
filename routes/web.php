@@ -15,8 +15,8 @@ use App\Http\Controllers\EmployeeController;
 
 Route::view('/', 'home');
 Route::view('/home', 'home');
-Route::view('/about', 'about');
-
+//Route::view('/about', 'about');
+Route::get('/about', 'Frontend\ResourceController@aboutUs');
 Route::get('/search', 'CompanyController@search');
 // Route::resource('companies', 'CompanyController');
 

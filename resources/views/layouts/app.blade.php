@@ -72,7 +72,6 @@
     <script type="text/javascript" src="{{ asset('js/mdb.min.js') }}"></script>
     <script src="{{ asset('js/multiselect.min.js') }}"></script>
 
-
     <!-- Initializations -->
     <script type="text/javascript">
       // Animations initialization
