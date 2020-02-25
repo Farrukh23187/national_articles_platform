@@ -29,7 +29,7 @@
                     data: [
                         <?php foreach ($article as $item): ?>
                         '<?= "$item->id"?>',
-                        <?php endforeach;?>
+                        <?php endforeach;?> 
                     ]
                 }, {
                     label: "Ishchi kuchiga talab",
