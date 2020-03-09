@@ -77,7 +77,7 @@ class ConferenceController extends Controller
      */
     public function show(Conference $conference)
     {
-        $journal_categories = ConferenceCategory::where('conference_id', $conference->id)->get();
+        $conference_categories = ConferenceCategory::where('conference_id', $conference->id)->get();
         return view('backend.conferences.show', compact('conference', 'conference_categories'));
     }
 

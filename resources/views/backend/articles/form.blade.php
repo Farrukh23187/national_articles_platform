@@ -65,7 +65,13 @@
         <label for="conference">Konferensiyani tanlang</label>
         <select id="conference" class="form-control" name="conference_id">
             <option value="" disabled selected>Konferensiyani tanlang</option>
-
+            @if(count($conference) > 0){ 
+                @foreach($conference as $conf){ 
+                    <option value="{{ $conf->id }}">{{ $conf->name }}</option> 
+                 @endforeach
+            @else 
+                    <option value="">Konferensiya kiritilmagan</option> 
+            @endif
         </select>
         <div class="text-danger">{{$errors->first('conference_id')}}</div>
     </div>

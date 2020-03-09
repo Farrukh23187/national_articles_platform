@@ -1,32 +1,32 @@
 @extends('backend/backend_layouts.main')
-@section('title', 'Ma`lumotlar  ' .$journal->first_name)
+@section('title', 'Ma`lumotlar  ')
     @include('backend.nav')
 @section('content')
 <div class="container mt-5" style="background-color: white; padding:30px 20px; border-radius:10px">
-    <h1> <b> {{ ($journal->name) ? $journal->name : "Jurnal"}}</b> haqida malumotlar</h1>
+    <h1> <b> {{ ($conference->name) ? $conference->name : "Konferensiya"}}</b> haqida malumotlar</h1>
 
     <table id="dt-material-checkbox" class="table table-striped" cellspacing="0" width="100%">
             <tr class="th-sm">
                 <th>ID</th>
-                <td>{{ $journal->id }}</td>
+                <td>{{ $conference->id }}</td>
             </tr>
             <tr class="th-sm">
                     <th>Jurnal nomi</th>
-                    <td>{{ $journal->name }}</td>
+                    <td>{{ $conference->name }}</td>
             </tr>
             <tr class="th-sm">
                     <th>Jurnal tashkiloti</th>
-                    <td>{{ $journal->company->name }}</td>
+                    <td>{{ $conference->company->name }}</td>
             </tr>
             
             <tr class="th-sm">
                     <th>Jurnal turi</th>
-                    <td>{{ $journal->journaltype->name }}</td>
+                    <td>{{ $conference->conferencetype->name }}</td>
             </tr>
             <tr class="th-sm">
                 <th>Jurnal categoriyalari</th>
                 <td>
-                @foreach($journal_categories as $category)
+                @foreach($conference_categories as $category)
                         {{ $category->category->name }} <br>
                 @endforeach
                 </td>

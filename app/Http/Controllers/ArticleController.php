@@ -58,7 +58,8 @@ class ArticleController extends Controller
             'key_words' => 'required',
             'annotation' => 'required|min:7',
             'status' => 'required',
-            'journal_id' => 'required',
+            'journal_id' => 'nullable',
+            'conference_id' => 'nullable',
             'file' => 'required|max:10000|mimes:doc,docx,pdf,djvu,odt,xlsx'
         ]);
         if($file = $request->file('file')){
@@ -71,34 +72,14 @@ class ArticleController extends Controller
               
         };
 
-        // dd($article);
-
-        $request1 = request();
-        
-        $article_id = Article::orderBy('id', 'desc')->first();
-
-        foreach($request->article_authors as $key => $authors){
-            $article_authors = new ArticleAuthor();
-            $article_authors->article_id = $article_id->id;
-            $article_authors->author_id = $request->article_authors[$key];
-            $article_authors->save();
-//             dd($article_authors);
-        }
-
-        foreach($request1->article_categories as $key => $categories){
-            $article_categories = new ArticleCategory();
-            $article_categories->article_id = $article_id->id;
-            $article_categories->category_id = $request1->article_categories[$key];
-            $article_categories->save();
-        }
-        // dd($article_categories);
-
         return redirect()->route('articles.index');
     }
 
     public function selectAjax(Request $request)
     {
         $journal_id = Input::get('journal_id');
+        $conference_id = Input::get('conference_id');
+
         $categories = DB::table('categories')
             ->join('journal_categories', 'journal_categories.category_id', 'categories.id')
             ->select('categories.name', 'categories.id')
@@ -107,7 +88,17 @@ class ArticleController extends Controller
             ->orderBy('categories.name', 'asc')
             ->get();
      
-      return response()->json($categories);
+            $conf_categories = DB::table('categories')
+            ->join('conference_categories', 'conference_categories.category_id', 'categories.id')
+            ->select('categories.name', 'categories.id')
+            ->where('conference_categories.conference_id', $conference_id)
+//            ->groupBy('categories.id')
+            ->orderBy('categories.name', 'asc')
+            ->get();
+      return response()->json([
+          'categories' => $categories,
+          'conf_categories' => $conf_categories
+      ]);
        
     }
    

@@ -83,10 +83,24 @@
 
 <script type="text/javascript">
       $('#journal').on('change', function(e){
-        console.log(e);
+        //console.log(e);
         var journal_id = e.target.value;
         $.get('/backend/json-categories?journal_id=' + journal_id,function(data) {
-          console.log(data);
+          //console.log(data);
+          $('#category').empty();
+          $('#category').append('<option value="0" disabled selected="true">=== Categoriyani tanlang ===</option>');
+
+          $.each(data, function(index, categoryObj){
+            $('#category').append('<option value="'+ categoryObj.id +'">'+ categoryObj.name +'</option>');
+          })
+        });
+      });
+
+       $('#conference').on('change', function(e){
+        //console.log(e);
+        var conference_id = e.target.value;
+        $.get('/backend/json-categories?conference_id=' + conference_id,function(data) {
+          //console.log(data);
           $('#category').empty();
           $('#category').append('<option value="0" disabled selected="true">=== Categoriyani tanlang ===</option>');
 
