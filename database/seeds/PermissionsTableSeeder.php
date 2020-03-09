@@ -35,8 +35,8 @@ class PermissionsTableSeeder extends Seeder
         $journal_role = Role::where('name', 'journal')->first();
         $conference_role = Role::where('name', 'conference')->first();
 
-        // $admin_role->attachPermissions([$roles_crud_permission, $users_crud_permission, $permissions_crud_permission]);
-        // $journal_role->attachPermissions([$faculties_crud_permission, $courses_crud_permission]);
+//         $admin_role->attachPermissions([$roles_crud_permission, $users_crud_permission, $permissions_crud_permission]);
+//         $journal_role->attachPermissions([$faculties_crud_permission, $courses_crud_permission]);
 
     }
 }

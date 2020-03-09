@@ -15,8 +15,8 @@ class UsersTableSeeder extends Seeder
         $admin_role = Role::where('name', 'admin')->first();
         $admin_user = User::firstOrCreate([
             'fullname' => 'Farrukh Choriyev',
-            'show_password' => 'admin2019',
-            'password' => Hash::make('admin2020'),
+            'show_password' => 'admin2020',
+            'password' => bcrypt('admin2020'),
             'email' => 'admin@mail.ru',
             'username' => 'admin'
             // 'status' => true

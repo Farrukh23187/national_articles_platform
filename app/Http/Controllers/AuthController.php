@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\Http\Requests\Auth\LoginRequest;
+
+
 class AuthController extends Controller
 {
     public function login(LoginRequest $request)
@@ -16,6 +18,7 @@ class AuthController extends Controller
                 return redirect()->route('authors.index');
             }
         }
+// dd($request);
         return back();
     }
 

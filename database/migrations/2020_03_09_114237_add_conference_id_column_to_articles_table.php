@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddJournalIdColumnToArticlesTable extends Migration
+class AddConferenceIdColumnToArticlesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,10 +14,10 @@ class AddJournalIdColumnToArticlesTable extends Migration
     public function up()
     {
         Schema::table('articles', function (Blueprint $table) {
-            $table->integer('journal_id')->unsigned()->nullable();
-            
-            $table->foreign('journal_id')->references('id')->on('journals')
-            ->onUpdate('cascade')->onDelete('cascade');
+            $table->integer('conference_id')->unsigned()->nullable();
+
+            $table->foreign('conference_id')->references('id')->on('conferences')
+                ->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

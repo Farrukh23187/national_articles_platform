@@ -49,7 +49,28 @@
         <div class="text-danger">{{$errors->first('file')}}</div>
 
     </div>
-    <div style="display:none" class="form-group pb-2">
+
+    <div class="form-group pb-2">
+        <label class="radioButton">Konferensiya
+            <input type="radio" onclick="check()"  id="isConference" name="isConference"/>
+            <span class="checkmark"></span>
+        </label>
+        <label class="radioButton">Jurnal
+            <input type="radio" onclick="check()"  id="isJournal" name="isConference" />
+            <span class="checkmark"></span>
+        </label>
+
+    </div>
+    <div class="form-group pb-2" style="display: none" id="divConference">
+        <label for="conference">Konferensiyani tanlang</label>
+        <select id="conference" class="form-control" name="conference_id">
+            <option value="" disabled selected>Konferensiyani tanlang</option>
+
+        </select>
+        <div class="text-danger">{{$errors->first('conference_id')}}</div>
+    </div>
+
+    <div class="form-group pb-2" style="display: none" id="divJournal">
         <label for="journal">Jurnalni tanlang</label>
         <select id="journal" class="form-control" name="journal_id">
             <option value="" disabled selected>Jurnalni tanlang</option>

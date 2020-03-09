@@ -34,16 +34,10 @@ class CreateArticlesTable extends Migration
         Schema::create('articles', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->integer('category_id')->unsigned();
-            $table->integer('author_id')->unsigned();
-            $table->date('year')->nullable();
+            $table->year('year')->nullable();
             $table->timestamps();
 
-             $table->foreign('category_id')->references('id')->on('categories')
-                ->onUpdate('cascade')->onDelete('cascade');
-             $table->foreign('author_id')->references('id')->on('authors')
-                ->onUpdate('cascade')->onDelete('cascade');
-             
+
         });
 
     }

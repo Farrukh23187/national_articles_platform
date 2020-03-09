@@ -21,7 +21,7 @@
 
     <style type="text/css">
       body{
-        background-image: url('http://www.bruna.cat/imgdownload/full/130/1304132/sky-blue-background-wallpaper.jpg');
+        background-image: url({{ asset('images/dot-grid.png') }});
         /*background-repeat: no-repeat;*/
         
       }
