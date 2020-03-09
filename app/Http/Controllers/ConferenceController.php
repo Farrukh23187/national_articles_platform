@@ -3,7 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Conference;
+use App\Company;
+use App\ConferenceTypes;
+use App\Category;
+use App\ConferenceCategory;
+use DB;
 class ConferenceController extends Controller
 {
     /**
@@ -13,7 +18,10 @@ class ConferenceController extends Controller
      */
     public function index()
     {
-        //
+        $conferences = Conference::all();
+        $company = Company::all();
+        $conference_category = ConferenceCategory::all();
+        return view('backend.conferences.index', compact('conferences', 'company', 'conference_category'));
     }
 
     /**
@@ -21,9 +29,13 @@ class ConferenceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Conference $conference)
     {
-        //
+        $company = Company::all();
+        $category = Category::all();
+        $conferencetype = ConferenceTypes::all();
+        $conference_category = ConferenceCategory::all();
+        return view('backend.conferences.create', compact('conference', 'conference_category', 'company', 'conferencetype', 'category'));
     }
 
     /**
@@ -34,7 +46,27 @@ class ConferenceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $conference = request()->validate([
+            'name' => 'required',
+            'company_id' => 'required',
+            'conferencetype_id' => 'required',
+            'date' => 'required'
+            ]);
+            conference::create($conference);
+            $conference_id = Conference::orderBy('id','desc')->first();
+            // dd($conference_id);
+            foreach($request->conference_categories as $key => $categories){
+                $conference_categories = new ConferenceCategory();
+                $conference_categories->conference_id = $conference_id->id;
+                $conference_categories->category_id = $request->conference_categories[$key];
+                $conference_categories->save();
+                // dd($conference_categories);
+            }
+            
+            // dd($journal_categories);
+
+        return redirect()->route('conferences.index');
     }
 
     /**
@@ -43,9 +75,10 @@ class ConferenceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Conference $conference)
     {
-        //
+        $journal_categories = ConferenceCategory::where('conference_id', $conference->id)->get();
+        return view('backend.conferences.show', compact('conference', 'conference_categories'));
     }
 
     /**
@@ -56,7 +89,7 @@ class ConferenceController extends Controller
      */
     public function edit($id)
     {
-        //
+       
     }
 
     /**
@@ -77,8 +110,9 @@ class ConferenceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Conference $conference)
     {
-        //
+        $conference->delete();
+        return redirect()->route('conferences.index');
     }
 }

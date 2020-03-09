@@ -17,9 +17,7 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     &nbsp;
-                    <!-- <li class="nav-item active">
-                            <a class="nav-link " href="/">Bosh sahifa</a>
-                          </li>-->
+                
                           <li class="nav-item">
                             <a class="nav-link" href="{{route('users.index')}}">Foydalanuvchilar</a>
                           </li> 
@@ -38,9 +36,10 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('journals.index') }}">Jurnallar</a>
                         </li>
-                          <!-- <li class="nav-item">
-                            <a class="nav-link" href="{{ route('contact') }}">Contact</a>
-                          </li> -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('conferences.index') }}">Konferensiyalar</a>
+                        </li>
+                        
                 </ul>
 
                 <!-- Right Side Of Navbar -->

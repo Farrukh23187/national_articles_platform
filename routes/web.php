@@ -46,7 +46,8 @@ Route::middleware(['auth:web'])->prefix('backend')->group(function () {
         'articles' => 'ArticleController',
         'authors' => 'AuthorController',
         'journals' => 'JournalController',
-        'companies' => 'CompanyController'
+        'companies' => 'CompanyController',
+        'conferences' => 'ConferenceController'
         ]);
         Route::get('/json-categories','ArticleController@selectAjax');
 

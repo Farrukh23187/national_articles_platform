@@ -24,7 +24,7 @@ class CreateConferencesTable extends Migration
             $table->string('name');
             $table->integer('company_id')->unsigned();
             $table->integer('conferencetype_id')->unsigned();
-            $table->date('date');
+            $table->date('date')->nullable();
             $table->timestamps();
 
             $table->foreign('company_id')->references('id')->on('companies')

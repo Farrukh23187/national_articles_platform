@@ -49,7 +49,7 @@
         <div class="text-danger">{{$errors->first('file')}}</div>
 
     </div>
-    <div class="form-group pb-2">
+    <div style="display:none" class="form-group pb-2">
         <label for="journal">Jurnalni tanlang</label>
         <select id="journal" class="form-control" name="journal_id">
             <option value="" disabled selected>Jurnalni tanlang</option>
