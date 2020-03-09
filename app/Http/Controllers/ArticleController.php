@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Conference;
 use Illuminate\Http\Request;
 use App\Article;
 use App\Author;
@@ -39,10 +40,10 @@ class ArticleController extends Controller
     {
         $article_category = ArticleCategory::all();
         $journal = Journal::all();
-        $category = Category::all();
+        $conference = Conference::all();
         $authors = Author::all();
        
-        return view('backend.articles.create', compact('article', 'authors', 'journal'));
+        return view('backend.articles.create', compact('article', 'authors', 'journal', 'conference'));
         
     }
 
