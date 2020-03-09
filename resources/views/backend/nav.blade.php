@@ -1,16 +1,7 @@
-<nav class="navbar  navbar-expand-lg navbar-dark purple">
+<nav class="navbar  navbar-expand-lg navbar-dark" style="background-color: #4e555b">
         <div class="container">
             <div class="navbar-header">
 
-                <!-- Collapsed Hamburger -->
-                    <span class="sr-only">Toggle Navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-
-                <!-- Branding Image -->
-               
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
