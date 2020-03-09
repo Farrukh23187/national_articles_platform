@@ -16,10 +16,12 @@
             <div class="form-group">
                 <label for="exampleInputEmail1">Username</label>
                 <input class="form-control" name="username">
+                <div class="text-danger">{{$errors->first('username')}}</div>
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
+                <label for="password">Password</label>
                 <input type="password" class="form-control" name="password">
+                <div class="text-danger">{{$errors->first('password')}}</div>
             </div>
 
             <button type="submit" class="btn btn-primary">Kirish</button>
