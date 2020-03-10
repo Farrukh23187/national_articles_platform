@@ -31,12 +31,20 @@ class PermissionsTableSeeder extends Seeder
         $permissions_crud_permission->description  = 'Create Read Update Delete for permissions table';
         $permissions_crud_permission->save();
 
-        $admin_role = Role::where('name', 'admin')->first();
-        $journal_role = Role::where('name', 'journal')->first();
-        $conference_role = Role::where('name', 'conference')->first();
+        $articles_crud_permission = new Permission();
+        $articles_crud_permission->name         = 'articles-crud';
+        $articles_crud_permission->display_name = 'CRUD for articles';
+        $articles_crud_permission->description  = 'Create Read Update Delete for articles table';
+        $articles_crud_permission->save();
 
-//         $admin_role->attachPermissions([$roles_crud_permission, $users_crud_permission, $permissions_crud_permission]);
-//         $journal_role->attachPermissions([$faculties_crud_permission, $courses_crud_permission]);
+        $admin_role = Role::where('name', 'admin')->first();
+        $staff_role = Role::where('name', 'staff')->first();
+        $user_role  = Role::where('name', 'user')->first();
+
+
+         $admin_role->attachPermissions([$roles_crud_permission, $users_crud_permission, $permissions_crud_permission, $articles_crud_permission]);
+         $staff_role->attachPermissions([$articles_crud_permission]);
+         $user_role->attachPermissions([$articles_crud_permission]);
 
     }
 }

@@ -13,8 +13,9 @@ class RolesTableSeeder extends Seeder
     {
         $roles = [
             ['name' => 'admin', 'display_name' => 'Administrator', 'description' => 'Admin have all permissions'],
-            ['name' => 'journal', 'display_name' => 'Organization`s Journal', 'description' => 'Organization`s Journal can add Articles'],
-            ['name' => 'conference', 'display_name' => 'Organization`s Conference', 'description' => 'Organization`s Conference can add Conferences']
+            ['name' => 'staff', 'display_name' => 'Staff', 'description' => 'Organization`s Journal can add Articles'],
+            ['name' => 'user', 'display_name' => 'User', 'description' => 'User'],
+            ['name' => 'expert', 'display_name' => 'Expert', 'description' => 'Expert']
 
         ];
 

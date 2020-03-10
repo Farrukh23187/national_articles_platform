@@ -51,6 +51,14 @@
             </select>
         </div>
         <hr>
+        <p>Role</p>
+        @foreach($roles as $role)
+            <input type="checkbox" name="roles[]" value="{{ $role->id }}"> {{ $role->display_name }} <br>
+        @endforeach
+        <p>
+            <span class="text-danger">{{ $errors->first('roles') }}</span>
+        </p>
+        <hr>
         {{ csrf_field() }}
 
         

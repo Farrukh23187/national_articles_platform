@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Role;
 use Illuminate\Http\Request;
 use App\User;
 use App\Http\Requests\User\StoreUser;
@@ -33,8 +34,8 @@ class UserController extends Controller
      */
     public function create(User $user)
     {
-        
-        return view('backend.users.create', compact('user'));
+        $roles = Role::all();
+        return view('backend.users.create', compact('user', 'roles'));
     }
 
     /**
@@ -46,6 +47,9 @@ class UserController extends Controller
     public function store(StoreUser $request)
     {
         $user = User::create($request->validated());
+        if ($request->has('roles')) {
+            $user->roles()->attach($request->roles);
+        }
         return redirect()->route('users.index');
     }
 
@@ -69,7 +73,8 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('backend.users.edit', compact('user'));
+        $roles = Role::all();
+        return view('backend.users.edit', compact('user', 'roles'));
         
     }
 
@@ -91,7 +96,7 @@ class UserController extends Controller
                 ]);
             }
         }
-        // $user->roles()->sync($request->roles);
+         $user->roles()->sync($request->roles);
         return redirect()->route('users.show', ['id' => $user->id]);
     }
 

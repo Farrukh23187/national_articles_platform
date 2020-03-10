@@ -37,4 +37,25 @@ class User extends Authenticatable
     public function company(){
         return $this->belongsTo(Company::class);
     }
+
+    public function isAdmin()
+    {
+        return $this->roles()->first()->name == 'admin';
+    }
+
+    public function isUser()
+    {
+        return $this->roles()->first()->name == 'user';
+    }
+
+    public function isExpert()
+    {
+        return $this->roles()->first()->name == 'expert';
+    }
+
+    public function isStaff()
+    {
+        return $this->roles()->first()->name == 'staff';
+    }
+
 }
