@@ -11,20 +11,24 @@
                 <td>{{ $conference->id }}</td>
             </tr>
             <tr class="th-sm">
-                    <th>Jurnal nomi</th>
+                    <th>Konferensiya nomi</th>
                     <td>{{ $conference->name }}</td>
             </tr>
             <tr class="th-sm">
-                    <th>Jurnal tashkiloti</th>
+                    <th>Konferensiya tashkiloti</th>
                     <td>{{ $conference->company->name }}</td>
             </tr>
             
             <tr class="th-sm">
-                    <th>Jurnal turi</th>
+                    <th>Konferensiya turi</th>
                     <td>{{ $conference->conferencetype->name }}</td>
             </tr>
             <tr class="th-sm">
-                <th>Jurnal categoriyalari</th>
+                <th>Konferensiya o'tkaziladigan sana</th>
+                <td>{{ $conference->date }}</td>
+            </tr>
+            <tr class="th-sm">
+                <th>Konferensiya categoriyalari</th>
                 <td>
                 @foreach($conference_categories as $category)
                         {{ $category->category->name }} <br>

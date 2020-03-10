@@ -42,10 +42,17 @@
                 <td>{{ ($article->status == 1) ? "Bepul" : "Pullik" }}</td>
             </tr>
 
-        <tr class="th-sm">
-                    <th>Jurnal nomi</th>
-                    <td>{{ $article->journal->name }}</td>
+        @if(isset($article->journal->name))
+            <tr class="th-sm">
+                <th>Jurnal nomi</th>
+                <td>{{ $article->journal->name }}</td>
             </tr>
+        @else
+            <tr class="th-sm">
+                <th>Konferensiya nomi</th>
+                <td>{{ $article->conference->name }}</td>
+            </tr>
+        @endif
 
             <tr class="th-sm">
                 <th>Maqola categoriyalari</th>

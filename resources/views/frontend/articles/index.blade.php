@@ -56,7 +56,7 @@
           <th>Maqola Kalit Sozlari</th>
           <th>Maqola Annotatsiyasi</th>
           <th>Maqola Yili</th>
-          <th>Maqola Jurnali</th>
+          <th>Maqola Jurnali yoki Konferensiyasi</th>
           <th>Maqola Statusi</th>
         </tr>
       </thead>
@@ -72,7 +72,15 @@
           <td>{{$item->key_words}}</td>
           <td>{{$item->annotation}}</td>
           <td>{{$item->year}}</td>
-          <td>{{$item->journal->name}}</td>
+        @if(isset($item->journal->name))
+
+            <td>{{ $item->journal->name }}</td>
+
+        @else
+
+            <td>{{ $item->conference->name }}</td>
+
+        @endif
           <td>{{($item->status == 1) ? "Bepul" : "Pullik"}}</td>
         </tr>
         <?php $count = $count+1;?>

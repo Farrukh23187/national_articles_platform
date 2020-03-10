@@ -37,12 +37,17 @@
                     <th>Maqola annotatsiyasi</th>
                     <td>{{ $article->annotation }}</td>
             </tr> 
-
+        @if(isset($article->journal->name))
             <tr class="th-sm">
                     <th>Jurnal nomi</th>
                     <td>{{ $article->journal->name }}</td>
             </tr>
-
+        @else
+            <tr class="th-sm">
+                <th>Konferensiya nomi</th>
+                <td>{{ $article->conference->name }}</td>
+            </tr>
+        @endif
             <tr class="th-sm">
                 <th>Maqola categoriyalari</th>
                 <td>

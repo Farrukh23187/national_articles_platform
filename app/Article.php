@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Conference;
 use Illuminate\Database\Eloquent\Model;
 use App\ArticleCategory;
 use App\Author;
@@ -19,6 +20,9 @@ class Article extends Model
     }
     public function journal(){
     	return $this->belongsTo(Journal::class);
+    }
+    public function conference(){
+        return $this->belongsTo(Conference::class);
     }
 
     

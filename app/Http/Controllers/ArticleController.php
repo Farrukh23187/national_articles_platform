@@ -36,9 +36,8 @@ class ArticleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Article $article, Request $request)
+    public function create(Article $article)
     {
-        $article_category = ArticleCategory::all();
         $journal = Journal::all();
         $conference = Conference::all();
         $authors = Author::all();
