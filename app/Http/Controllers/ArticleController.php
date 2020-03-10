@@ -19,11 +19,6 @@ use Illuminate\Support\Facades\Input;
 
 class ArticleController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $article = Article::all();
@@ -31,11 +26,6 @@ class ArticleController extends Controller
         return view('backend.articles.index', compact('article'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create(Article $article)
     {
         $journal = Journal::all();
@@ -49,8 +39,6 @@ class ArticleController extends Controller
    
     public function store(Request $request)
     {
-        // dd($request);
-        // $request2 = request();
         $data = request()->validate([
             'name' => 'required|min:4',
             'year' => 'required',
@@ -63,12 +51,10 @@ class ArticleController extends Controller
         ]);
         if($file = $request->file('file')){
             $name = $file->getClientOriginalName();
-            if($file->move('files', $name)){
+            if($file->move('files', $name)) {
                 $article = Article::create($data);
                 $this->storeFile($article);
-                // dd($article->file);
             }
-              
         };
 
         return redirect()->route('articles.index');
@@ -109,35 +95,17 @@ class ArticleController extends Controller
         return view('backend.articles.show', compact('article', 'article_categories', 'article_authors'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy(Article $article)
     {
         $article->delete();
