@@ -24,8 +24,7 @@ class StoreAuthor extends FormRequest
     public function rules()
     {
         return [
-            'first_name' => 'required|min:4',
-            'last_name' => 'required|min:4',
+            'fullname' => 'required|min:4',
             'email' => 'required|email',
             'phone' => 'required|min:7',
             'academic_title' => 'required'

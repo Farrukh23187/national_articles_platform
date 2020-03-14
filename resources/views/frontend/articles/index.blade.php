@@ -14,7 +14,7 @@
     <div class="col-md-3">
 
       <div style="" class="col-xs-6 ">
-        <select class="form-control" id="CategoryId">
+        <select class="form-control" id="categoryId">
           <option value="">Kategoriyani tanlang</option>
           @foreach(App\Category::all() as $category)
             <option class="option" value="{{$category->id}}">{{$category->name}}</option>
@@ -23,12 +23,8 @@
       </div> <br>
 
       <div style="" class="col-xs-6 ">
-        <select class="form-control" id="AuthorId">
-          <option value="">Muallifni tanlang</option>
-          @foreach(App\Author::all() as $author)
-            <option class="option" value="{{$author->id}}">{{$author->first_name}} {{$author->last_name}}</option>
-          @endforeach
-        </select>
+        <input id="authors" type="text" class="form-control" name="authors" placeholder="Mualliflar orqali izlash">
+        
       </div>
       <br>
       <div class="col-xs-6">

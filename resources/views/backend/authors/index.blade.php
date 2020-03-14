@@ -11,7 +11,7 @@
     <hr>
     <div class="container" style="background-color: white; padding: 10px">
 
-        <a  href="{{ route('authors.create') }}" class="btn btn-success">Yangi muallif qo'shish</a>
+        <a  href="{{ route('authors.create') }}" class="btn btn-success">Yangi muallif qoshish</a>
          {{--<a href="{{ route('vacancy.create') }}" class="btn btn-primary">Create vacancy</a>--}}
 
         {{--<div class="col-md-4">--}}
@@ -30,9 +30,7 @@
             <thead>
             <tr>
                 <th><b>ID</b></th>
-                <th class="th-sm"><b>Muallif Ismi</b>
-                </th>
-                <th class="th-sm"><b>Muallif Familiyasi</b>
+                <th class="th-sm"><b>Muallif Ism familiyasi</b>
                 </th>
                 <th class="th-sm"><b>Muallif email</b>
                 </th>
@@ -49,8 +47,7 @@
                 <a href="/authors/{{ $item->id }}">
                     <tr>
                         <td>{{ $item->id }}</td>
-                        <td>{{ $item->first_name }}</td>
-                        <td>{{ $item->last_name }}</td>
+                        <td>{{ $item->fullname }}</td>
                         <td>{{ $item->email }}</td>
                         <td>{{ $item->phone }}</td>
                         <td>{{ $item->academic_title }}</td>

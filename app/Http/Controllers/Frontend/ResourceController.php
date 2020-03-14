@@ -40,26 +40,29 @@ class ResourceController extends Controller
     }
 
     public function filterArticles(Request $request){
-        $author_id = $request->author_id;
+        // dd($request);
+        $author = $request->authors;
         $cat_id = $request->cat_id;
         $key_words = $request->key_words;
         $count  = 1;
 
 
-        if($cat_id!="" && $author_id!="" && $key_words!=""){
+        if($cat_id!="" && $author!="" && $key_words!=""){
             $data = DB::table('articles')
                 ->join('article_categories','articles.id','article_categories.article_id')
-                ->join('article_authors','articles.id','article_authors.article_id')
+                ->join('article_authors', 'article_authors.article_id', 'articles.id')
+                ->join('authors','authors.id','article_authors.author_id')
                 ->where('article_categories.category_id',$cat_id)
-                ->where('article_authors.author_id',$author_id)
+                ->where('authors.fullname','LIKE','%'.$author.'%')
                 ->where('articles.key_words','LIKE','%'.$key_words.'%')
                 ->where('articles.status', '!=', 0)
                 ->get();
         } 
-        else if($key_words!=""&& $author_id!=""){
+        else if($key_words!=""&& $author!=""){
             $data = DB::table('articles')
-                ->join('article_authors','articles.id','article_authors.article_id')
-                ->where('article_authors.author_id',$author_id)
+                ->join('article_authors', 'article_authors.article_id', 'articles.id')
+                ->join('authors','authors.id','article_authors.author_id')
+                ->where('authors.fullname','LIKE','%'.$author.'%')
                 ->where('articles.key_words','LIKE','%'.$key_words.'%')
                 ->where('articles.status', '!=', 0)
                 ->get();
@@ -72,12 +75,13 @@ class ResourceController extends Controller
                 ->where('articles.status', '!=', 0)
                 ->get();
         }
-        else if($cat_id!=""&& $author_id!=""){
+        else if($cat_id!=""&& $author!=""){
             $data = DB::table('articles')
                 ->join('article_categories','articles.id','article_categories.article_id')
-                ->join('article_authors','articles.id','article_authors.article_id')
+                ->join('article_authors', 'article_authors.article_id', 'articles.id')
+                ->join('authors','authors.id','article_authors.author_id')
                 ->where('article_categories.category_id',$cat_id)
-                ->where('article_authors.author_id',$author_id)
+                ->where('authors.fullname','LIKE','%'.$author.'%')
                 ->where('articles.status', '!=', 0)
                 ->get();
         }
@@ -94,12 +98,13 @@ class ResourceController extends Controller
                 ->where('articles.status', '!=', 0)
                 ->get();
         }
-        else if($author_id!=""){
+        else if($author!=""){
             $data = DB::table('articles')
-                ->join('article_authors','articles.id','article_authors.article_id')
-                ->where('article_authors.author_id',$author_id)
-                ->where('articles.status', '!=', 0)
+                ->join('article_authors', 'article_authors.article_id', 'articles.id')
+                ->join('authors','authors.id','article_authors.author_id')
+                ->where('authors.fullname','LIKE','%'.$author.'%')
                 ->get();
+                // dd($data);
         }
         if(count($data)=="0"){
             echo "<h1 align='center'>Bunday Categoriya mansub bo'lgan maqola topilmadi</h1>";

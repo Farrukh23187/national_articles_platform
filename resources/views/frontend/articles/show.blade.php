@@ -24,7 +24,7 @@
                     <th>Maqola Maullifi</th>
                 <td>
                     @foreach($article_authors as $authors)
-                        {{ $authors->author->first_name }} {{ $authors->author->last_name }} <br>
+                        {{ $authors->author->fullname }} <br>
                     @endforeach
                 </td>
             </tr>

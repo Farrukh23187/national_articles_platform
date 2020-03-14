@@ -27,7 +27,7 @@
             <label for="article_authors[]">Maqola muallifini tanlang | (Bir nechta mualliflarni tanlash uchun yoki tanlanganni o'chirish uchun <b>{ctrl + sichqoncha} </b>tugmasini bosing)</label>
             <select id='testSelect1' multiple class="form-control" name="article_authors[]" size="4">
                 @foreach ($authors as $author)
-                    <option value='{{$author->id}}' style="padding: 5px;border-top: 1px dashed black">{{$author->first_name}} {{$author->last_name}}</option>
+                    <option value='{{$author->id}}' style="padding: 5px;border-top: 1px dashed black">{{$author->fullname}} </option>
                 @endforeach
             </select>
             <script>

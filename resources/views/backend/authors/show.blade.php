@@ -11,14 +11,9 @@
                 <td>{{ $author->id }}</td>
             </tr>
             <tr class="th-sm">
-                    <th>Ismi</th>
-                    <td>{{ $author->first_name }}</td>
+                    <th>Ism familiyasi</th>
+                    <td>{{ $author->fullname }}</td>
             </tr>
-            <tr class="th-sm">
-                    <th>Familiyasi</th>
-                    <td>{{ $author->last_name }}</td>
-            </tr>
-            
             <tr class="th-sm">
                     <th>Email adresi</th>
                     <td>{{ $author->email }}</td>

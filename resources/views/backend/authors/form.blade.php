@@ -1,15 +1,11 @@
 <div class="row">
     <div class="col-md-12">
     <div class="form-group pb-3">
-        <label for="first_name">Muallif Ismini kiriting</label>
-        <input type="text" name="first_name"  class="form-control" value="{{ old('first_name') ?? $author->first_name}}">
-        <div class="text-danger">{{$errors->first('first_name')}}</div>
+        <label for="fullname">Muallif Ism familiyasini kiriting</label>
+        <input type="text" name="fullname"  class="form-control" value="{{ old('fullname') ?? $author->fullname}}">
+        <div class="text-danger">{{$errors->first('fullname')}}</div>
 </div>
-<div class="form-group pb-3">
-    <label for="last_name">Muallif Familiyasini kiriting</label>
-    <input type="text" name="last_name"  class="form-control" value="{{ old('last_name') ?? $author->last_name}}">
-    <div class="text-danger">{{$errors->first('last_name')}}</div>
-</div>
+
 
 <div class="form-group pb-2">
     <label for="email">Muallif Email kiriting</label>
