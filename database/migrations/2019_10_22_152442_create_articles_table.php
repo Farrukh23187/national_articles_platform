@@ -22,8 +22,7 @@ class CreateArticlesTable extends Migration
 
         Schema::create('authors', function (Blueprint $table){
             $table->increments('id');
-            $table->string('first_name');
-            $table->string('last_name');
+            $table->string('fullname');
             $table->string('email')->unique();
             $table->string('phone');
             $table->string('academic_title');
